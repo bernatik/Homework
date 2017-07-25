@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Homework</string>
+
+    <string name="button_change">Change text</string>
+    <string name="text_up">I wanna be up</string>
+    <string name="text_down">I wanna be down</string>
 </resources>
