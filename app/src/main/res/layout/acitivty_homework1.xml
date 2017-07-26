@@ -14,7 +14,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
         android:textAllCaps="true"
-        android:textColor="#e12222"/>
+        android:textColor="@color/color_text_up"/>
 
     <Button
         android:id="@+id/button_change"
@@ -30,6 +30,6 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
         android:textAllCaps="true"
-        android:textColor="#1554da"/>
+        android:textColor="@color/color_text_down"/>
 
 </LinearLayout>
