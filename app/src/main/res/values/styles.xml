@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Style for Button Login -->
+    <style name="button_login">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/classwork2_text_size</item>
+    </style>
+
+    <!-- Style for Text on Homework 1 -->
+    <style name="homework1_text_style">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
