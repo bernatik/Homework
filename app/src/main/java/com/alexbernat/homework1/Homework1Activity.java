@@ -1,4 +1,4 @@
-package com.alexbernat.homework;
+package com.alexbernat.homework1;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+import com.alexbernat.homework.R;
+
+public class Homework1Activity extends AppCompatActivity implements View.OnClickListener{
 
     private TextView tvUp, tvDown;
     private Button btnChange;
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.acitivty_homework1);
 
         tvUp = (TextView)findViewById(R.id.text_up);
         tvDown = (TextView)findViewById(R.id.text_down);
