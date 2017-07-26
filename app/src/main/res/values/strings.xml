@@ -3,11 +3,15 @@
 
     <!-- Strings for Main Activity -->
     <string name="button_homework1">Homework 1</string>
+    <string name="button_classwork2">Classwork 2</string>
 
     <!-- Strings for Homework1 -->
     <string name="button_change">Change text</string>
     <string name="text_up">I wanna be up</string>
     <string name="text_down">I wanna be down</string>
 
-
+    <!-- Strings for Classwork 2 -->
+    <string name="edit_text_name">Name</string>
+    <string name="edit_text_password">Password</string>
+    <string name="button_login">Login</string>
 </resources>

@@ -19,6 +19,8 @@
 
         <activity android:name="com.alexbernat.homework1.Homework1Activity"/>
 
+        <activity android:name="com.alexbernat.classwork2.Classwork2Activity"/>
+
     </application>
 
 </manifest>
