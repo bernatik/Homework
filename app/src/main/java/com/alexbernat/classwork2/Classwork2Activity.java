@@ -32,7 +32,10 @@ public class Classwork2Activity extends Activity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Classwork2Activity.this, Homework1Activity.class));
+                Intent intent = new Intent(Classwork2Activity.this, Homework1Activity.class);
+                intent.putExtra(Homework1Activity.KEY_USERNAME, etName.getText().toString());
+                intent.putExtra(Homework1Activity.KEY_PASSWORD, etPassword.getText().toString());
+                startActivity(intent);
             }
         });
     }

@@ -10,6 +10,9 @@ import com.alexbernat.homework.R;
 
 public class Homework1Activity extends AppCompatActivity implements View.OnClickListener{
 
+    public static final String KEY_USERNAME = "username";
+    public static final String KEY_PASSWORD = "password";
+
     private TextView tvUp, tvDown;
     private Button btnChange;
     private View.OnClickListener varListener = new View.OnClickListener() {
@@ -27,6 +30,11 @@ public class Homework1Activity extends AppCompatActivity implements View.OnClick
         tvUp = (TextView)findViewById(R.id.text_up);
         tvDown = (TextView)findViewById(R.id.text_down);
         btnChange = (Button)findViewById(R.id.button_change);
+
+        String username = getIntent().getStringExtra(KEY_USERNAME);
+        String password = getIntent().getStringExtra(KEY_PASSWORD);
+        tvUp.setText(username);
+        tvDown.setText(password);
 
         /* click as a variable */
         tvUp.setOnClickListener(varListener);
