@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Разработка под Андроид</string>
+
+    <!-- Strings for Main Activity -->
+    <string name="button_homework1">Домашняя работа 1</string>
+    <string name="button_classwork2">Классаня работа 2</string>
+
+    <!-- Strings for Homework1 -->
+    <string name="button_change">Изменить текст</string>
+    <string name="text_up">Хочу быть сверху</string>
+    <string name="text_down">Хочу быть снизу</string>
+
+    <!-- Strings for Classwork 2 -->
+    <string name="edit_text_name">Имя</string>
+    <string name="edit_text_password">Пароль</string>
+    <string name="button_login">Войти</string>
+</resources>

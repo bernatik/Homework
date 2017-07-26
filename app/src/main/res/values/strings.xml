@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Homework</string>
+    <string name="app_name">Android Development</string>
 
     <!-- Strings for Main Activity -->
     <string name="button_homework1">Homework 1</string>
