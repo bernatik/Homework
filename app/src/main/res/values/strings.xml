@@ -4,6 +4,7 @@
     <!-- Strings for Main Activity -->
     <string name="button_homework1">Homework 1</string>
     <string name="button_classwork2">Classwork 2</string>
+    <string name="button_homework2">Homework 2</string>
 
     <!-- Strings for Homework1 -->
     <string name="button_change">Change text</string>

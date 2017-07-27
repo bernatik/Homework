@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.alexbernat.classwork2.Classwork2Activity;
 import com.alexbernat.homework.R;
 import com.alexbernat.homework1.Homework1Activity;
+import com.alexbernat.homework2.Homework2Activity;
 
 /**
  * Created by Александр on 26.07.2017.
@@ -36,6 +37,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, Classwork2Activity.class));
+            }
+        });
+
+        Button btnHomework2 = (Button)findViewById(R.id.button_homework2);
+        btnHomework2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Homework2Activity.class));
             }
         });
     }

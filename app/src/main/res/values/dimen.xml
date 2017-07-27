@@ -3,9 +3,10 @@
 
     <!-- dimens for Main Activity -->
     <dimen name="main_activity_margin">10dp</dimen>
+    <dimen name="button_text_size">20sp</dimen>
 
     <!-- dimens for Classwork 2 -->
     <dimen name="classwork2_left_right_padding">20dp</dimen>
-    <dimen name="classwork2_text_size">20sp</dimen>
+
 
 </resources>

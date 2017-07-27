@@ -3,29 +3,30 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/text_up"
+        style="@style/homework1_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_up"
-        style="@style/homework1_text_style"
         android:textColor="@color/color_text_up"/>
 
     <Button
         android:id="@+id/button_change"
+        style="@style/buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_change"/>
 
     <TextView
         android:id="@+id/text_down"
+        style="@style/homework1_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_down"
-        style="@style/homework1_text_style"
         android:textColor="@color/color_text_down"/>
 
 </LinearLayout>

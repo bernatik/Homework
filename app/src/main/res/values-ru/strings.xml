@@ -3,7 +3,8 @@
 
     <!-- Strings for Main Activity -->
     <string name="button_homework1">Домашняя работа 1</string>
-    <string name="button_classwork2">Классаня работа 2</string>
+    <string name="button_classwork2">Классная работа 2</string>
+    <string name="button_homework2">Домашняя работа 2</string>
 
     <!-- Strings for Homework1 -->
     <string name="button_change">Изменить текст</string>
