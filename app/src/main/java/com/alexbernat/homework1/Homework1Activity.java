@@ -1,5 +1,6 @@
 package com.alexbernat.homework1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -31,10 +32,14 @@ public class Homework1Activity extends AppCompatActivity implements View.OnClick
         tvDown = (TextView)findViewById(R.id.text_down);
         btnChange = (Button)findViewById(R.id.button_change);
 
-        String username = getIntent().getStringExtra(KEY_USERNAME);
-        String password = getIntent().getStringExtra(KEY_PASSWORD);
-        tvUp.setText(username);
-        tvDown.setText(password);
+        Intent intent = getIntent();
+        /* Get username and password text only if we went from Classwork2Activity */
+        if (intent.hasExtra(KEY_USERNAME) || intent.hasExtra(KEY_PASSWORD)) {
+            String username = getIntent().getStringExtra(KEY_USERNAME);
+            String password = getIntent().getStringExtra(KEY_PASSWORD);
+            tvUp.setText(username);
+            tvDown.setText(password);
+        }
 
         /* click as a variable */
         tvUp.setOnClickListener(varListener);
