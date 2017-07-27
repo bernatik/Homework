@@ -7,4 +7,11 @@
     <!-- Colors for Homework 1 -->
     <color name="color_text_up">#e12222</color>
     <color name="color_text_down">#1554da</color>
+
+    <!-- Colors for Homework 2 -->
+    <color name="color_red">#e62525</color>
+    <color name="color_green">#30ea36</color>
+    <color name="color_yellow">#efde1f</color>
+    <color name="color_blue">#1b52e9</color>
+
 </resources>

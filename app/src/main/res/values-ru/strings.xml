@@ -15,4 +15,13 @@
     <string name="edit_text_name">Имя</string>
     <string name="edit_text_password">Пароль</string>
     <string name="button_login">Войти</string>
+
+    <!-- Strings for Homework 2 -->
+    <string name="label_austria">Австрия</string>
+    <string name="label_poland">Польша</string>
+    <string name="label_italy">Италия</string>
+    <string name="label_columbia">Колумбия</string>
+    <string name="label_madagascar">Мадагаскар</string>
+    <string name="label_thailand">Таиланд</string>
+    <string name="label_denmark">Дания</string>
 </resources>

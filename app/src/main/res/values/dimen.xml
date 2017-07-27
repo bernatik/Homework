@@ -8,5 +8,10 @@
     <!-- dimens for Classwork 2 -->
     <dimen name="classwork2_left_right_padding">20dp</dimen>
 
+    <!-- dimens for Homework 2 -->
+    <dimen name="homework2_top_bottom_margin">16dp</dimen>
+    <dimen name="homework2_height_of_flag">100dp</dimen>
+    <dimen name="homework2_width_of_flag">225dp</dimen>
+
 
 </resources>

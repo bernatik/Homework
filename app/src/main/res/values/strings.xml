@@ -6,7 +6,7 @@
     <string name="button_classwork2">Classwork 2</string>
     <string name="button_homework2">Homework 2</string>
 
-    <!-- Strings for Homework1 -->
+    <!-- Strings for Homework 1 -->
     <string name="button_change">Change text</string>
     <string name="text_up">I wanna be up</string>
     <string name="text_down">I wanna be down</string>
@@ -15,4 +15,13 @@
     <string name="edit_text_name">Name</string>
     <string name="edit_text_password">Password</string>
     <string name="button_login">Login</string>
+    
+    <!-- Strings for Homework 2 -->
+    <string name="label_austria">Austria</string>
+    <string name="label_poland">Poland</string>
+    <string name="label_italy">Italy</string>
+    <string name="label_columbia">Columbia</string>
+    <string name="label_madagascar">Madagascar</string>
+    <string name="label_thailand">Thailand</string>
+    <string name="label_denmark">Denmark</string>
 </resources>
