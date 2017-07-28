@@ -30,4 +30,7 @@
     <!-- Strings for Classwork 3 -->
     <string name="text_classwork3_label">New banknote</string>
     <string name="button_classwork3_click">Click me</string>
+
+    <!-- Strings for Homework 3 -->
+    <string name="button_homework3_show">Show image</string>
 </resources>

@@ -6,4 +6,8 @@
     <dimen name="homework2_height_of_flag">200dp</dimen>
     <dimen name="homework2_width_of_flag">450dp</dimen>
 
+    <!-- dimens for Homework 3 -->
+    <dimen name="homework3_image_width">400dp</dimen>
+    <dimen name="homework3_image_height">400dp</dimen>
+
 </resources>

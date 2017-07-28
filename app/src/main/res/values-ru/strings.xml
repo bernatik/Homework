@@ -30,4 +30,7 @@
     <!-- Strings for Classwork 3 -->
     <string name="text_classwork3_label">Новая купюра</string>
     <string name="button_classwork3_click">Жмяк</string>
+
+    <!-- Strings for Homework 3 -->
+    <string name="button_homework3_show">Показать картинку</string>
 </resources>

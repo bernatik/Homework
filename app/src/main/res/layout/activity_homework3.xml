@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
+              android:padding="@dimen/classwork2_left_right_padding"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <EditText
+        android:id="@+id/edit_text_homework3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"/>
+
+    <ImageView
+        android:id="@+id/image_view_homework3"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/homework2_top_bottom_margin"
+        android:layout_marginBottom="@dimen/homework2_top_bottom_margin"
+        android:layout_width="@dimen/homework3_image_width"
+        android:layout_height="@dimen/homework3_image_height"/>
+
+    <Button
+        android:id="@+id/button_show_homework3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_show_selector"
+        android:padding="@dimen/homework3_button_padding"
+        android:text="@string/button_homework3_show"/>
 </LinearLayout>
