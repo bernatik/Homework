@@ -5,6 +5,7 @@
     <string name="button_homework1">Homework 1</string>
     <string name="button_classwork2">Classwork 2</string>
     <string name="button_homework2">Homework 2</string>
+    <string name="button_classwork3">Classwork 3</string>
 
     <!-- Strings for Homework 1 -->
     <string name="button_change">Change text</string>
@@ -24,4 +25,8 @@
     <string name="label_madagascar">Madagascar</string>
     <string name="label_thailand">Thailand</string>
     <string name="label_denmark">Denmark</string>
+
+    <!-- Strings for Classwork 3 -->
+    <string name="text_classwork3_label">New banknote</string>
+    <string name="button_classwork3_click">Click me</string>
 </resources>

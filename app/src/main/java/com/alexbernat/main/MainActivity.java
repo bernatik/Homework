@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.alexbernat.classwork2.Classwork2Activity;
+import com.alexbernat.classwork3.Classwork3Activity;
 import com.alexbernat.homework.R;
 import com.alexbernat.homework1.Homework1Activity;
 import com.alexbernat.homework2.Homework2Activity;
@@ -45,6 +46,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, Homework2Activity.class));
+            }
+        });
+
+        Button btnClasswork3 = (Button)findViewById(R.id.button_classwork3);
+        btnClasswork3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Classwork3Activity.class));
             }
         });
     }
