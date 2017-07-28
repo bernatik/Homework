@@ -6,6 +6,7 @@
     <string name="button_classwork2">Classwork 2</string>
     <string name="button_homework2">Homework 2</string>
     <string name="button_classwork3">Classwork 3</string>
+    <string name="button_homework3">Homework 3</string>
 
     <!-- Strings for Homework 1 -->
     <string name="button_change">Change text</string>

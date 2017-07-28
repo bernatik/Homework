@@ -6,6 +6,7 @@
     <string name="button_classwork2">Классная работа 2</string>
     <string name="button_homework2">Домашняя работа 2</string>
     <string name="button_classwork3">Классная работа 3</string>
+    <string name="button_homework3">Домашняя работа 3</string>
 
     <!-- Strings for Homework1 -->
     <string name="button_change">Изменить текст</string>
@@ -28,5 +29,5 @@
 
     <!-- Strings for Classwork 3 -->
     <string name="text_classwork3_label">Новая купюра</string>
-    <string name="button_classwork3_click">Нажми меня</string>
+    <string name="button_classwork3_click">Жмяк</string>
 </resources>

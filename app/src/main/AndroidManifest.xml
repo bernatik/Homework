@@ -25,6 +25,8 @@
 
         <activity android:name="com.alexbernat.classwork3.Classwork3Activity"/>
 
+        <activity android:name="com.alexbernat.homework3.Homework3Activity"/>
+
     </application>
 
 </manifest>
