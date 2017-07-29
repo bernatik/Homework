@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.alexbernat.homework.BuildConfig;
 import com.alexbernat.homework.R;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -18,7 +19,6 @@ import com.bumptech.glide.request.RequestOptions;
 
 public class Homework3Activity extends Activity {
 
-    private static final String PICTURE_URL = "https://goo.gl/yFz6m4";
     private boolean isShowMode = false;
 
     @Override
@@ -26,8 +26,8 @@ public class Homework3Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homework3);
 
-        EditText etLink = (EditText)findViewById(R.id.edit_text_homework3);
-        etLink.setText(PICTURE_URL);
+        final EditText etLink = (EditText)findViewById(R.id.edit_text_homework3);
+        etLink.setText(BuildConfig.API_ENDPOINT);
         final ImageView ivPicture = (ImageView)findViewById(R.id.image_view_homework3);
         final Button btnShowImage = (Button)findViewById(R.id.button_show_homework3);
         btnShowImage.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +36,7 @@ public class Homework3Activity extends Activity {
                 if (!isShowMode) {
                     btnShowImage.setText(getResources().getString(R.string.button_homework3_hide));
                     Glide.with(getApplicationContext())
-                            .load(PICTURE_URL)
+                            .load(etLink.getText().toString())
                             /* add circle form */
                             .apply(RequestOptions.circleCropTransform())
                             .into(ivPicture);
