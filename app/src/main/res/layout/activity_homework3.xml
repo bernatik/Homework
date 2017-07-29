@@ -26,5 +26,5 @@
         android:layout_gravity="center_horizontal"
         android:background="@drawable/button_show_selector"
         android:padding="@dimen/homework3_button_padding"
-        android:text="@string/button_homework3_show"/>
+        android:text="@string/button_homework3_load"/>
 </LinearLayout>

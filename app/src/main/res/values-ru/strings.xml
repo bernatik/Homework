@@ -32,5 +32,6 @@
     <string name="button_classwork3_click">Жмяк</string>
 
     <!-- Strings for Homework 3 -->
-    <string name="button_homework3_show">Показать картинку</string>
+    <string name="button_homework3_load">Загрузить картинку</string>
+    <string name="button_homework3_hide">Спрятать картинку</string>
 </resources>

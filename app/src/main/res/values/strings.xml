@@ -32,5 +32,6 @@
     <string name="button_classwork3_click">Click me</string>
 
     <!-- Strings for Homework 3 -->
-    <string name="button_homework3_show">Show image</string>
+    <string name="button_homework3_load">Load image</string>
+    <string name="button_homework3_hide">Hide image</string>
 </resources>
