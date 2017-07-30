@@ -37,8 +37,9 @@ public class Homework3Activity extends Activity {
                     btnShowImage.setText(getResources().getString(R.string.button_homework3_hide));
                     Glide.with(getApplicationContext())
                             .load(etLink.getText().toString())
-                            /* add circle form */
+                            /* add circle form and placeholder if current image wasn't loaded */
                             .apply(RequestOptions.circleCropTransform())
+                            .apply(RequestOptions.errorOf(R.drawable.money))
                             .into(ivPicture);
                     ivPicture.setVisibility(View.VISIBLE);
                     isShowMode = true;
