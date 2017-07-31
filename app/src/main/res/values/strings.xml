@@ -7,6 +7,7 @@
     <string name="button_homework2">Homework 2</string>
     <string name="button_classwork3">Classwork 3</string>
     <string name="button_homework3">Homework 3</string>
+    <string name="button_classwork4">Classwork 4</string>
 
     <!-- Strings for Homework 1 -->
     <string name="button_change">Change text</string>
@@ -34,4 +35,7 @@
     <!-- Strings for Homework 3 -->
     <string name="button_homework3_load">Load image</string>
     <string name="button_homework3_hide">Hide image</string>
+
+    <!-- Strings for Classwork 4 -->
+
 </resources>
