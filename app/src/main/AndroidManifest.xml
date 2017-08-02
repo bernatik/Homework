@@ -27,6 +27,9 @@
         <activity android:name="com.alexbernat.classwork4.Classwork4Activity"/>
         <activity android:name="com.alexbernat.homework4.Homework4Activity"/>
         <activity android:name="com.alexbernat.classwork5.Classwork5Activity"/>
+
+        <service android:name="com.alexbernat.classwork5.MyService"/>
+        <service android:name="com.alexbernat.classwork5.MyIntentService"/>
     </application>
 
 </manifest>
