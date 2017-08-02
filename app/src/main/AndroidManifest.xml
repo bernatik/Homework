@@ -30,6 +30,9 @@
 
         <service android:name="com.alexbernat.classwork5.MyService"/>
         <service android:name="com.alexbernat.classwork5.MyIntentService"/>
+
+        <activity android:name="com.alexbernat.homework4.Homework4TempActivity"/>
+
     </application>
 
 </manifest>
