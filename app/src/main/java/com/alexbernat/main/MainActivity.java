@@ -16,6 +16,7 @@ import com.alexbernat.homework1.Homework1Activity;
 import com.alexbernat.homework2.Homework2Activity;
 import com.alexbernat.homework3.Homework3Activity;
 import com.alexbernat.homework4.Homework4Activity;
+import com.alexbernat.homework5.Homework5Activity;
 
 /**
  * Created by Александр on 26.07.2017.
@@ -97,7 +98,7 @@ public class MainActivity extends Activity {
         btnHomework5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Classwork5Activity.class));
+                startActivity(new Intent(MainActivity.this, Homework5Activity.class));
             }
         });
     }
