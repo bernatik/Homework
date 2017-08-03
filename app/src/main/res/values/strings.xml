@@ -8,8 +8,9 @@
     <string name="button_classwork3">Classwork 3</string>
     <string name="button_homework3">Homework 3</string>
     <string name="button_classwork4">Classwork 4</string>
-    <string name="button_homework4">Homework 4 (UC)</string>
+    <string name="button_homework4">Homework 4</string>
     <string name="button_classwork5">Classwork 5</string>
+    <string name="button_homework5">Homework 5</string>
 
     <!-- Strings for Homework 1 -->
     <string name="button_change">Change text</string>
@@ -38,10 +39,8 @@
     <string name="button_homework3_load">Load image</string>
     <string name="button_homework3_hide">Hide image</string>
 
-    <!-- Strings for Classwork 4 -->
-
     <!-- Strings for Homework 4 -->
     <string name="button_homework4_start_new_activity">Sova Animation</string>
 
-    <!-- Strings for Classwork 5 -->
+    <!-- Strings for Homework 5 -->
 </resources>

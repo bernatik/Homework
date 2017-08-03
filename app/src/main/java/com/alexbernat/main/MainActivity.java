@@ -92,5 +92,13 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(MainActivity.this, Classwork5Activity.class));
             }
         });
+
+        Button btnHomework5 = (Button)findViewById(R.id.button_homework5);
+        btnHomework5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Classwork5Activity.class));
+            }
+        });
     }
 }

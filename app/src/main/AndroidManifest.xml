@@ -32,7 +32,7 @@
         <service android:name="com.alexbernat.classwork5.MyIntentService"/>
 
         <activity android:name="com.alexbernat.homework4.Homework4TempActivity"/>
-
+        <activity android:name="com.alexbernat.homework5.Homework5Activity"/>
     </application>
 
 </manifest>
