@@ -48,7 +48,7 @@ public class ClocksView extends View {
     private Paint textPaint = new Paint();
 
     private UpdateClocks updateClocks = new UpdateClocks();
-    private boolean clocksUpdated;
+    private boolean isClocksWorking;
 
     private class UpdateClocks implements Runnable {
         @Override
@@ -58,7 +58,7 @@ public class ClocksView extends View {
             currentMinutes = calendar.get(Calendar.MINUTE);
             currentSeconds = calendar.get(Calendar.SECOND);
             invalidate();
-            if (clocksUpdated){
+            if (isClocksWorking){
                 postDelayed(this, 1000);
             }
         }
@@ -180,13 +180,15 @@ public class ClocksView extends View {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        clocksUpdated = true;
+        /* turn On our clocks when attach view to the window */
+        isClocksWorking = true;
         postDelayed(updateClocks, 1000);
     }
 
     @Override
     protected void onDetachedFromWindow() {
-        clocksUpdated = false;
+        /* turn Off our clocks when view is no longer attached to the window */
+        isClocksWorking = false;
         super.onDetachedFromWindow();
     }
 }
