@@ -14,4 +14,8 @@
         android:layout_height="wrap_content"
         android:text="@string/button_homework4_start_new_activity"/>
 
+    <com.alexbernat.homework4.ClocksView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>
