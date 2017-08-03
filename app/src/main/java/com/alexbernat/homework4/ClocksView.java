@@ -152,10 +152,11 @@ public class ClocksView extends View {
         /* draw numbers */
         float textWidth = textPaint.measureText(HOURS_12);
         float textHeight = -textPaint.ascent() + textPaint.descent();
+        float textWidthOneNumber = textPaint.measureText(HOURS_9);
         canvas.drawText(HOURS_12, clocksCenterX - textWidth/2, clocksCenterY - radius*3/4 + textHeight/2, textPaint);
-        canvas.drawText(HOURS_3, getWidth()- radius*1/4, clocksCenterY + textHeight/2, textPaint);
-        canvas.drawText(HOURS_6, clocksCenterX - textWidth/2, clocksCenterY + radius*3/4, textPaint);
-        canvas.drawText(HOURS_9, clocksCenterX - radius*3/4 - textWidth/2, clocksCenterY + textHeight/2, textPaint);
+        canvas.drawText(HOURS_3, clocksCenterX + radius*3/4 - textWidthOneNumber/2, clocksCenterY + textHeight/2, textPaint);
+        canvas.drawText(HOURS_6, clocksCenterX - textWidthOneNumber/2, clocksCenterY + radius*3/4, textPaint);
+        canvas.drawText(HOURS_9, clocksCenterX - radius*3/4 - textWidthOneNumber/2, clocksCenterY + textHeight/2, textPaint);
 
         /* minutes */
         clocksPaint.setStrokeWidth(STROKE_CLOCKS_TALL);
