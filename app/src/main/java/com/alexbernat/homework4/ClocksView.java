@@ -18,8 +18,11 @@ import java.util.Calendar;
 
 public class ClocksView extends View {
 
-    public static final int STROKE_WIDE = 20;
-    public static final int STROKE_TALL = 10;
+    public static final int STROKE_CLOCKS_WIDE = 20;
+    public static final int STROKE_CLOCKS_TALL = 10;
+    public static final int WIDTH_HOUR_ARROW = 20;
+    public static final int WIDTH_MINUTE_ARROW = 10;
+    public static final int WIDTH_SECOND_ARROW = 5;
 
     public static final float TEXT_SIZE = 100;
 
@@ -32,12 +35,18 @@ public class ClocksView extends View {
     public static final String HOURS_6 = "6";
     public static final String HOURS_9 = "9";
 
+    private Calendar calendar;
     private int currentHours;
-    private int currrentMinutes;
+    private int currentMinutes;
+    private int currentSeconds;
 
     private Paint clocksPaint = new Paint();
-    private Paint arrowsPaint = new Paint();
+    private Paint arrowsHourPaint = new Paint();
+    private Paint arrowsMinutePaint = new Paint();
+    private Paint arrowsSecondPaint = new Paint();
     private Paint textPaint = new Paint();
+
+
 
     public ClocksView(Context context) {
         super(context);
@@ -61,29 +70,41 @@ public class ClocksView extends View {
 
     private void initialize(){
 
-        Calendar calendar = Calendar.getInstance();
+        final Calendar calendar = Calendar.getInstance();
         currentHours = calendar.get(Calendar.HOUR);
-        currrentMinutes = calendar.get(Calendar.MINUTE);
+        currentMinutes = calendar.get(Calendar.MINUTE);
+        currentSeconds = calendar.get(Calendar.SECOND);
 
         clocksPaint.setAntiAlias(true);
         clocksPaint.setColor(ContextCompat.getColor(getContext(), CLOCKS_COLOR));
         clocksPaint.setStyle(Paint.Style.STROKE);
-        clocksPaint.setStrokeWidth(STROKE_WIDE);
+        clocksPaint.setStrokeWidth(STROKE_CLOCKS_WIDE);
 
-        arrowsPaint.setAntiAlias(true);
-        arrowsPaint.setColor(ContextCompat.getColor(getContext(), ARROWS_COLOR));
-        arrowsPaint.setStyle(Paint.Style.STROKE);
-        arrowsPaint.setStrokeWidth(STROKE_WIDE);
+        arrowsHourPaint.setAntiAlias(true);
+        arrowsHourPaint.setColor(ContextCompat.getColor(getContext(), ARROWS_COLOR));
+        arrowsHourPaint.setStyle(Paint.Style.STROKE);
+        arrowsHourPaint.setStrokeWidth(WIDTH_HOUR_ARROW);
+
+        arrowsMinutePaint.setAntiAlias(true);
+        arrowsMinutePaint.setColor(ContextCompat.getColor(getContext(), ARROWS_COLOR));
+        arrowsMinutePaint.setStyle(Paint.Style.STROKE);
+        arrowsMinutePaint.setStrokeWidth(WIDTH_MINUTE_ARROW);
+
+        arrowsSecondPaint.setAntiAlias(true);
+        arrowsSecondPaint.setColor(ContextCompat.getColor(getContext(), ARROWS_COLOR));
+        arrowsSecondPaint.setStyle(Paint.Style.STROKE);
+        arrowsSecondPaint.setStrokeWidth(WIDTH_SECOND_ARROW);
 
         textPaint.setAntiAlias(true);
         textPaint.setColor(ContextCompat.getColor(getContext(), NUMBERS_COLOR));
         textPaint.setStyle(Paint.Style.STROKE);
         textPaint.setTextSize(TEXT_SIZE);
+
     }
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        clocksPaint.setStrokeWidth(STROKE_CLOCKS_WIDE);
         /* initial place where clocks will be drawn */
         float clocksCenterX = getWidth()/2;
         float clocksCenterY = getHeight()/2;
@@ -96,7 +117,7 @@ public class ClocksView extends View {
         for (int i = 0; i < 12; i++){
             /* draw an hour arrow */
             if (i == currentHours){
-                canvas.drawLine(clocksCenterX, clocksCenterY - radius*1/2, clocksCenterX, clocksCenterY, arrowsPaint);
+                canvas.drawLine(clocksCenterX, clocksCenterY - radius*1/2, clocksCenterX, clocksCenterY, arrowsHourPaint);
             }
             canvas.drawLine(clocksCenterX,
                     clocksCenterY - radius,
@@ -112,13 +133,16 @@ public class ClocksView extends View {
 //        canvas.drawText(HOURS_6, clocksCenterX - 50, clocksCenterY + radius*3/4, textPaint);
 //        canvas.drawText(HOURS_9, clocksCenterX - radius*3/4, clocksCenterY + 50, textPaint);
 
-        /* minutes - make them taller */
-        clocksPaint.setStrokeWidth(STROKE_TALL);
-        arrowsPaint.setStrokeWidth(STROKE_TALL);
+        /* minutes */
+        clocksPaint.setStrokeWidth(STROKE_CLOCKS_TALL);
         for (int i = 0; i < 60; i++){
             /* draw a minutes arrow */
-            if (i == currrentMinutes){
-                canvas.drawLine(clocksCenterX, clocksCenterY - radius*2/3, clocksCenterX, clocksCenterY, arrowsPaint);
+            if (i == currentMinutes){
+                canvas.drawLine(clocksCenterX, clocksCenterY - radius*2/3, clocksCenterX, clocksCenterY, arrowsMinutePaint);
+            }
+            /* draw a seconds arrow */
+            if (i == currentSeconds){
+                canvas.drawLine(clocksCenterX, clocksCenterY - radius*6/7, clocksCenterX, clocksCenterY, arrowsSecondPaint);
             }
             canvas.drawLine(clocksCenterX,
                     clocksCenterY - radius,
@@ -127,6 +151,5 @@ public class ClocksView extends View {
                     clocksPaint);
             canvas.rotate(360/60, clocksCenterX, clocksCenterY);
         }
-
     }
 }
