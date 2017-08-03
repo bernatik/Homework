@@ -28,6 +28,7 @@ public class ClocksView extends View {
 
     public static final int CLOCKS_COLOR = android.R.color.black;
     public static final int ARROWS_COLOR = R.color.color_yellow;
+    public static final int CENTER_COLOR = R.color.color_blue;
     public static final int NUMBERS_COLOR = android.R.color.white;
 
     public static final String HOURS_12 = "12";
@@ -35,7 +36,6 @@ public class ClocksView extends View {
     public static final String HOURS_6 = "6";
     public static final String HOURS_9 = "9";
 
-    private Calendar calendar;
     private int currentHours;
     private int currentMinutes;
     private int currentSeconds;
@@ -44,9 +44,25 @@ public class ClocksView extends View {
     private Paint arrowsHourPaint = new Paint();
     private Paint arrowsMinutePaint = new Paint();
     private Paint arrowsSecondPaint = new Paint();
+    private Paint centerCircle = new Paint();
     private Paint textPaint = new Paint();
 
+    private UpdateClocks updateClocks = new UpdateClocks();
+    private boolean clocksUpdated;
 
+    private class UpdateClocks implements Runnable {
+        @Override
+        public void run() {
+            Calendar calendar = Calendar.getInstance();
+            currentHours = calendar.get(Calendar.HOUR);
+            currentMinutes = calendar.get(Calendar.MINUTE);
+            currentSeconds = calendar.get(Calendar.SECOND);
+            invalidate();
+            if (clocksUpdated){
+                postDelayed(this, 1000);
+            }
+        }
+    }
 
     public ClocksView(Context context) {
         super(context);
@@ -70,7 +86,8 @@ public class ClocksView extends View {
 
     private void initialize(){
 
-        final Calendar calendar = Calendar.getInstance();
+        /* get this calendar instance to receive an initial clocks with arrows */
+        Calendar calendar = Calendar.getInstance();
         currentHours = calendar.get(Calendar.HOUR);
         currentMinutes = calendar.get(Calendar.MINUTE);
         currentSeconds = calendar.get(Calendar.SECOND);
@@ -79,6 +96,10 @@ public class ClocksView extends View {
         clocksPaint.setColor(ContextCompat.getColor(getContext(), CLOCKS_COLOR));
         clocksPaint.setStyle(Paint.Style.STROKE);
         clocksPaint.setStrokeWidth(STROKE_CLOCKS_WIDE);
+
+        centerCircle.setAntiAlias(true);
+        centerCircle.setColor(ContextCompat.getColor(getContext(), CENTER_COLOR));
+        centerCircle.setStyle(Paint.Style.FILL_AND_STROKE);
 
         arrowsHourPaint.setAntiAlias(true);
         arrowsHourPaint.setColor(ContextCompat.getColor(getContext(), ARROWS_COLOR));
@@ -151,5 +172,21 @@ public class ClocksView extends View {
                     clocksPaint);
             canvas.rotate(360/60, clocksCenterX, clocksCenterY);
         }
+
+        /* draw center circle */
+        canvas.drawCircle(clocksCenterX, clocksCenterY, radius/10, centerCircle);
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        clocksUpdated = true;
+        postDelayed(updateClocks, 1000);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        clocksUpdated = false;
+        super.onDetachedFromWindow();
     }
 }
