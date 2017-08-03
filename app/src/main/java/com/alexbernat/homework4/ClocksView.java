@@ -3,6 +3,7 @@ package com.alexbernat.homework4;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -24,7 +25,7 @@ public class ClocksView extends View {
     public static final int WIDTH_MINUTE_ARROW = 10;
     public static final int WIDTH_SECOND_ARROW = 5;
 
-    public static final float TEXT_SIZE = 100;
+    public static final float NUMBERS_SIZE = 100;
 
     public static final int CLOCKS_COLOR = android.R.color.black;
     public static final int ARROWS_COLOR = R.color.color_yellow;
@@ -119,7 +120,7 @@ public class ClocksView extends View {
         textPaint.setAntiAlias(true);
         textPaint.setColor(ContextCompat.getColor(getContext(), NUMBERS_COLOR));
         textPaint.setStyle(Paint.Style.STROKE);
-        textPaint.setTextSize(TEXT_SIZE);
+        textPaint.setTextSize(NUMBERS_SIZE);
 
     }
     @Override
@@ -149,10 +150,12 @@ public class ClocksView extends View {
         }
 
         /* draw numbers */
-//        canvas.drawText(HOURS_12, clocksCenterX - 50, clocksCenterY - radius*3/4, textPaint);
-//        canvas.drawText(HOURS_3, getWidth()- radius*1/4, clocksCenterY + 50, textPaint);
-//        canvas.drawText(HOURS_6, clocksCenterX - 50, clocksCenterY + radius*3/4, textPaint);
-//        canvas.drawText(HOURS_9, clocksCenterX - radius*3/4, clocksCenterY + 50, textPaint);
+        float textWidth = textPaint.measureText(HOURS_12);
+        float textHeight = -textPaint.ascent() + textPaint.descent();
+        canvas.drawText(HOURS_12, clocksCenterX - textWidth/2, clocksCenterY - radius*3/4 + textHeight/2, textPaint);
+        canvas.drawText(HOURS_3, getWidth()- radius*1/4, clocksCenterY + textHeight/2, textPaint);
+        canvas.drawText(HOURS_6, clocksCenterX - textWidth/2, clocksCenterY + radius*3/4, textPaint);
+        canvas.drawText(HOURS_9, clocksCenterX - radius*3/4 - textWidth/2, clocksCenterY + textHeight/2, textPaint);
 
         /* minutes */
         clocksPaint.setStrokeWidth(STROKE_CLOCKS_TALL);
