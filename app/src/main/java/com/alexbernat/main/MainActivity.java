@@ -7,10 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 
-import com.alexbernat.classwork2.Classwork2Activity;
-import com.alexbernat.classwork3.Classwork3Activity;
-import com.alexbernat.classwork4.Classwork4Activity;
-import com.alexbernat.classwork5.Classwork5Activity;
+import com.alexbernat.classwork6.Classwork6Activity;
 import com.alexbernat.homework.R;
 import com.alexbernat.homework1.Homework1Activity;
 import com.alexbernat.homework2.Homework2Activity;
@@ -38,11 +35,11 @@ public class MainActivity extends Activity {
             }
         });
 
-        Button btnClasswork2 = (Button)findViewById(R.id.button_classwork2);
-        btnClasswork2.setOnClickListener(new View.OnClickListener() {
+        Button btnClasswork = (Button)findViewById(R.id.button_classwork);
+        btnClasswork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Classwork2Activity.class));
+                startActivity(new Intent(MainActivity.this, Classwork6Activity.class));
             }
         });
 
@@ -54,14 +51,6 @@ public class MainActivity extends Activity {
             }
         });
 
-        Button btnClasswork3 = (Button)findViewById(R.id.button_classwork3);
-        btnClasswork3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Classwork3Activity.class));
-            }
-        });
-
         Button btnHomework3 = (Button)findViewById(R.id.button_homework3);
         btnHomework3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,27 +59,11 @@ public class MainActivity extends Activity {
             }
         });
 
-        Button btnClasswork4 = (Button)findViewById(R.id.button_classwork4);
-        btnClasswork4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Classwork4Activity.class));
-            }
-        });
-
         Button btnHomework4 = (Button)findViewById(R.id.button_homework4);
         btnHomework4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, Homework4Activity.class));
-            }
-        });
-
-        Button btnClasswork5 = (Button)findViewById(R.id.button_classwork5);
-        btnClasswork5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Classwork5Activity.class));
             }
         });
 

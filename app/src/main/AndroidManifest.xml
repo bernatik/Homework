@@ -33,6 +33,8 @@
 
         <activity android:name="com.alexbernat.homework4.Homework4TempActivity"/>
         <activity android:name="com.alexbernat.homework5.Homework5Activity"/>
+        <activity android:name="com.alexbernat.classwork6.Classwork6Activity">
+        </activity>
     </application>
 
 </manifest>
