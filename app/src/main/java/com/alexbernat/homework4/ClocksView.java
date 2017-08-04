@@ -12,6 +12,7 @@ import android.view.View;
 import com.alexbernat.homework.R;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * Created by Александр on 03.08.2017.
@@ -54,7 +55,7 @@ public class ClocksView extends View {
     private class UpdateClocks implements Runnable {
         @Override
         public void run() {
-            Calendar calendar = Calendar.getInstance();
+            Calendar calendar = Calendar.getInstance(Locale.US);
             currentHours = calendar.get(Calendar.HOUR);
             currentMinutes = calendar.get(Calendar.MINUTE);
             currentSeconds = calendar.get(Calendar.SECOND);
@@ -88,7 +89,7 @@ public class ClocksView extends View {
     private void initialize(){
 
         /* get this calendar instance to receive an initial clocks with arrows */
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance(Locale.US);
         currentHours = calendar.get(Calendar.HOUR);
         currentMinutes = calendar.get(Calendar.MINUTE);
         currentSeconds = calendar.get(Calendar.SECOND);
@@ -136,12 +137,8 @@ public class ClocksView extends View {
         /* draw clocks */
         canvas.drawCircle(clocksCenterX, clocksCenterY, radius, clocksPaint);
 
-        /* hours */
+        /* wide lines for hours */
         for (int i = 0; i < 12; i++){
-            /* draw an hour arrow */
-            if (i == currentHours){
-                canvas.drawLine(clocksCenterX, clocksCenterY - radius*1/2, clocksCenterX, clocksCenterY, arrowsHourPaint);
-            }
             canvas.drawLine(clocksCenterX,
                     clocksCenterY - radius,
                     clocksCenterX,
@@ -150,6 +147,11 @@ public class ClocksView extends View {
             canvas.rotate(360/12, clocksCenterX, clocksCenterY);
         }
 
+        /* calculations to position hour arrow more precisely */
+        if (currentHours == 12)
+            currentHours = 0;
+        int preciseHour = currentHours*5 + currentMinutes/12;
+
         /* draw numbers */
         float textHeight = -textPaint.ascent() + textPaint.descent();
         canvas.drawText(HOURS_12, clocksCenterX, clocksCenterY - radius*3/4 + textHeight/2, textPaint);
@@ -157,9 +159,13 @@ public class ClocksView extends View {
         canvas.drawText(HOURS_6, clocksCenterX, clocksCenterY + radius*3/4, textPaint);
         canvas.drawText(HOURS_9, clocksCenterX - radius*3/4, clocksCenterY + textHeight/2 - STROKE_CLOCKS_WIDE, textPaint);
 
-        /* minutes */
+        /* tall lines for minutes */
         clocksPaint.setStrokeWidth(STROKE_CLOCKS_TALL);
         for (int i = 0; i < 60; i++){
+            /* draw an hour arrow */
+            if (i == preciseHour){
+                canvas.drawLine(clocksCenterX, clocksCenterY - radius*1/2, clocksCenterX, clocksCenterY, arrowsHourPaint);
+            }
             /* draw a minutes arrow */
             if (i == currentMinutes){
                 canvas.drawLine(clocksCenterX, clocksCenterY - radius*2/3, clocksCenterX, clocksCenterY, arrowsMinutePaint);
