@@ -39,5 +39,6 @@
     <!-- Strings for Homework 4 -->
     <string name="button_homework4_start_new_activity">Sova Animation</string>
 
-    <!-- Strings for Homework 5 -->
+    <!-- Strings for Classwork 5 -->
+    <string name="button_classwork5">Get Random Number</string>
 </resources>

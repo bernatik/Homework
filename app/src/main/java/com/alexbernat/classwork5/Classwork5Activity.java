@@ -13,6 +13,7 @@ import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.alexbernat.homework.R;
@@ -20,7 +21,12 @@ import com.alexbernat.homework.R;
 public class Classwork5Activity extends Activity {
 
     private TextView text;
+    private TextView textNumber;
+    private Button btnGetNumber;
     private int i;
+
+    MyService boundService;
+    boolean isBound = false;
 
     private BroadcastReceiver receiver = new BroadcastReceiver(){
         @Override
@@ -38,6 +44,8 @@ public class Classwork5Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classwork5);
         text = (TextView)findViewById(R.id.text_classwork5);
+        textNumber = (TextView)findViewById(R.id.text_classwork5_number);
+        btnGetNumber = (Button)findViewById(R.id.button_claswork5);
 
 //        startService(new Intent(this, MyService.class));
 
@@ -57,6 +65,16 @@ public class Classwork5Activity extends Activity {
 //                stopService(new Intent(Classwork5Activity.this, MyService.class));
             }
         });
+
+        btnGetNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isBound){
+                    int num = boundService.getRandomNumber();
+                    textNumber.setText(String.valueOf(num));
+                }
+            }
+        });
     }
 
     @Override
@@ -71,7 +89,7 @@ public class Classwork5Activity extends Activity {
                 LocalBroadcastManager.getInstance(this);
         localBroadcastManager.registerReceiver(receiver, intentFilter);
 
-        Intent intent = new Intent(Classwork5Activity.this, MyService.class);
+        Intent intent = new Intent(this, MyService.class);
         bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
 
     }
@@ -83,18 +101,25 @@ public class Classwork5Activity extends Activity {
                 LocalBroadcastManager.getInstance(this);
         localBroadcastManager.unregisterReceiver(receiver);
 
-        unbindService(serviceConnection);
+        if (isBound) {
+            unbindService(serviceConnection);
+            isBound = false;
+        }
     }
 
     private ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.e("CLASSWORK5", "onServiceConnected()");
+            MyService.MyBinder binder = (MyService.MyBinder)service;
+            boundService = binder.getService();
+            isBound = true;
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
             Log.e("CLASSWORK5", "onServiceDisconnected()");
+            isBound = false;
         }
     };
 }
