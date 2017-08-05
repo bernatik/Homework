@@ -23,7 +23,7 @@ import com.alexbernat.homework.R;
 
 public class Homework5Activity extends Activity {
 
-    final String LOG_TAG = "Homework5Activity";
+    private static final String LOG_TAG = "Homework5Activity";
     Intent serviceIntent;
     boolean isBound;
     TextView tvWifi;

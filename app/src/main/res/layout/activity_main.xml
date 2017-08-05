@@ -55,6 +55,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/main_activity_margin"
         android:text="@string/button_homework5"/>
+    <Button
+        android:id="@+id/button_homework6"
+        style="@style/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_activity_margin"
+        android:text="@string/button_homework6"/>
 
 
 </LinearLayout>

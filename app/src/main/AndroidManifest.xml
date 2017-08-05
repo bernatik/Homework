@@ -3,7 +3,7 @@
           package="com.alexbernat.homework">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name="com.alexbernat.HomeworkApplication"
@@ -34,8 +34,11 @@
 
         <activity android:name="com.alexbernat.homework4.Homework4TempActivity"/>
         <activity android:name="com.alexbernat.homework5.Homework5Activity"/>
+
         <service android:name="com.alexbernat.homework5.Homework5Service"/>
+
         <activity android:name="com.alexbernat.classwork6.Classwork6Activity"/>
+        <activity android:name="com.alexbernat.homework6.Homework6Activity"/>
 
     </application>
 

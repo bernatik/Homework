@@ -7,13 +7,14 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 
-import com.alexbernat.classwork5.Classwork5Activity;
+import com.alexbernat.classwork6.Classwork6Activity;
 import com.alexbernat.homework.R;
 import com.alexbernat.homework1.Homework1Activity;
 import com.alexbernat.homework2.Homework2Activity;
 import com.alexbernat.homework3.Homework3Activity;
 import com.alexbernat.homework4.Homework4Activity;
 import com.alexbernat.homework5.Homework5Activity;
+import com.alexbernat.homework6.Homework6Activity;
 
 /**
  * Created by Александр on 26.07.2017.
@@ -30,7 +31,7 @@ public class MainActivity extends Activity {
         btnClasswork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Classwork5Activity.class));
+                startActivity(new Intent(MainActivity.this, Classwork6Activity.class));
             }
         });
 
@@ -72,6 +73,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, Homework5Activity.class));
+            }
+        });
+
+        Button btnHomework6 = (Button)findViewById(R.id.button_homework6);
+        btnHomework6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Homework6Activity.class));
             }
         });
     }
