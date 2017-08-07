@@ -1,18 +1,12 @@
 package com.alexbernat.homework5;
 
 import android.app.Activity;
-import android.content.ComponentName;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
+import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.alexbernat.homework.R;
@@ -23,29 +17,22 @@ import com.alexbernat.homework.R;
 
 public class Homework5Activity extends Activity {
 
-    private static final String LOG_TAG = "Homework5Activity";
+    public static final String HOMEWORK5_ACTION = "com.alexbernat.homework5.HOMEWORK5_ACTION";
     Intent serviceIntent;
-    boolean isBound;
+    MyActionBroadcast broadcast;
+    boolean isWifiConnected;
     TextView tvWifi;
 
-    /* messenger to send the first request from activity to service */
-    Messenger msgService;
-    /* our messenger that will receive messages from the service */
-    Messenger replyMessenger = new Messenger(new HandlerReplyMsg());
-
-    ServiceConnection serviceConnection = new ServiceConnection() {
+    public class MyActionBroadcast extends BroadcastReceiver{
         @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            isBound = true;
-            msgService = new Messenger(service);
-            sendMessage();
+        public void onReceive(Context context, Intent intent) {
+            isWifiConnected = intent.getBooleanExtra(Homework5Service.KEY_WIFI_STATUS, false);
+            if (isWifiConnected)
+                tvWifi.setText("Wifi ON");
+            else
+                tvWifi.setText("Wifi OFF");
         }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            isBound = false;
-        }
-    };
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,45 +42,24 @@ public class Homework5Activity extends Activity {
 
         tvWifi = (TextView) findViewById(R.id.text_homework5);
 
+        broadcast = new MyActionBroadcast();
+
     }
 
     @Override
     protected void onStart() {
-        bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE);
-        Log.e(LOG_TAG, "Service Started and bind to it!");
+        startService(serviceIntent);
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Homework5Activity.HOMEWORK5_ACTION);
+        registerReceiver(broadcast, filter);
         super.onStart();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        unbindService(serviceConnection);
         stopService(serviceIntent);
-        Log.e(LOG_TAG, "Service unbind!");
-    }
-
-    public void sendMessage() {
-        if (isBound) {
-            try {
-                /* create a message to the service */
-                Message message = Message.obtain(null, Homework5Service.MESSAGE, 1, 1);
-                /* "register" this activity as a receiver for replies */
-                message.replyTo = replyMessenger;
-                /* send message to the service */
-                msgService.send(message);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    class HandlerReplyMsg extends Handler {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            String receivedMessage = msg.obj.toString(); //msg received from service
-            tvWifi.setText(receivedMessage);
-        }
+        unregisterReceiver(broadcast);
     }
 
 }

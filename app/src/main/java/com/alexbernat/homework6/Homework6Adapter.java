@@ -26,6 +26,7 @@ public class Homework6Adapter extends RecyclerView.Adapter<Homework6Adapter.Home
 
     ArrayList<String> urls;
     Context context;
+    OnItemClickListener clickListener;
 
     public Homework6Adapter(ArrayList<String> urls, Context context) {
         this.urls = urls;
@@ -41,6 +42,7 @@ public class Homework6Adapter extends RecyclerView.Adapter<Homework6Adapter.Home
 
     @Override
     public void onBindViewHolder(final Homework6ViewHolder holder, int position) {
+        final String item = urls.get(position);
         Glide.with(context)
                 .load(urls.get(position))
                 .listener(new RequestListener<Drawable>() {
@@ -58,6 +60,15 @@ public class Homework6Adapter extends RecyclerView.Adapter<Homework6Adapter.Home
                     }
                 })
                 .into(holder.image);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (clickListener != null){
+                    clickListener.onItemClick(item);
+                }
+            }
+        });
     }
 
     @Override
@@ -75,5 +86,14 @@ public class Homework6Adapter extends RecyclerView.Adapter<Homework6Adapter.Home
             image = (ImageView)itemView.findViewById(R.id.image_homework6);
             progressBar = (ProgressBar)itemView.findViewById(R.id.progress_bar_homework6);
         }
+    }
+
+
+    interface OnItemClickListener{
+        public void onItemClick(String item);
+    }
+
+    public void setClickListener(OnItemClickListener clickListener) {
+        this.clickListener = clickListener;
     }
 }

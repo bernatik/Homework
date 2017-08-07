@@ -39,7 +39,7 @@
 
         <activity android:name="com.alexbernat.classwork6.Classwork6Activity"/>
         <activity android:name="com.alexbernat.homework6.Homework6Activity"/>
-
+        <activity android:name="com.alexbernat.classwork7.Classwork7Activity"/>
     </application>
 
 </manifest>

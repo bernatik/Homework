@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.alexbernat.homework.R;
 
@@ -36,6 +37,13 @@ public class Homework6Activity extends Activity {
         pictureUrls.add("https://i.pinimg.com/236x/28/94/1f/28941fd4d1e50ba307b12cfdbce192bc--kung-fu-movies--movie.jpg");
 
         Homework6Adapter adapter = new Homework6Adapter(pictureUrls, this);
+
+        adapter.setClickListener(new Homework6Adapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(String item) {
+                Toast.makeText(Homework6Activity.this, "onItemClick " + item, Toast.LENGTH_SHORT).show();
+            }
+        });
         rvGallery.setAdapter(adapter);
 
     }
