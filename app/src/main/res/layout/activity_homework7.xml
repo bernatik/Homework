@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="com.alexbernat.homework7.User"/>
+        <variable
+            name="user"
+            type="com.alexbernat.homework7.User"/>
+        <variable
+            name="activity"
+            type="com.alexbernat.homework7.Homework7Activity"/>
+    </data>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@{user.sex == 0 ? @color/color_blue : @color/color_pink}"
+    tools:context="com.alexbernat.homework7.Homework7Activity">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:src="@{user.imageUrl}"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/image"
+        android:layout_toRightOf="@id/image"
+        android:text="@{user.name}"/>
+
+    <TextView
+        android:id="@+id/surname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/image"
+        android:layout_toRightOf="@id/image"
+        android:layout_below="@id/name"
+        android:text="@{user.surname}"/>
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/image"
+        android:layout_toRightOf="@id/image"
+        android:layout_below="@id/surname"
+        android:text="@{String.valueOf(user.age)}"/>
+</RelativeLayout>
+</layout>
