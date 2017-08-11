@@ -2,14 +2,14 @@
     <string name="app_name">Android Development</string>
 
     <!-- Strings for Main Activity -->
-    <string name="button_classwork">Recent Classwork</string>
+    <string name="button_classwork">Recent Classwork (9)</string>
     <string name="button_homework1">Homework 1</string>
     <string name="button_homework2">Homework 2</string>
     <string name="button_homework3">Homework 3</string>
     <string name="button_homework4">Homework 4</string>
     <string name="button_homework5">Homework 5</string>
     <string name="button_homework6">Homework 6</string>
-    <string name="button_homework7">Homework 7 (UC)</string>
+    <string name="button_homework7">Homework 7</string>
 
     <!-- Strings for Homework 1 -->
     <string name="button_change">Change text</string>
