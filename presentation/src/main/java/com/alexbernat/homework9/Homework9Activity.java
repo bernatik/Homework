@@ -2,6 +2,7 @@ package com.alexbernat.homework9;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 
 import com.alexbernat.base.BaseActivity;
 import com.alexbernat.homework.R;
@@ -20,6 +21,9 @@ public class Homework9Activity extends BaseActivity {
                 DataBindingUtil.setContentView(this, R.layout.activity_homework9); //connect xml layout to this activity
 
         binding.setViewModel(viewModel); //connect this Activity with ViewModel (needs to be declared as variable in xml/data)
+
+        binding.rvHomework9.setLayoutManager(new GridLayoutManager(this, 2)); //"install" recycler view
+        binding.rvHomework9.setAdapter(new Homework9Adapter());
 
         super.onCreate(savedInstanceState); //start creating activity after viewModel was being attached
     }

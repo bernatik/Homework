@@ -33,7 +33,7 @@ public class User extends BaseObservable {
     }
 
 
-    @BindingAdapter("bind:src")
+    @BindingAdapter("bind:loadImage")
     public static void setImageUrl(ImageView imageView, String imageUrl){
         Glide.with(imageView.getContext()).load(imageUrl).into(imageView);
     }
