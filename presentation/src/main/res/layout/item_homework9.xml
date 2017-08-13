@@ -4,7 +4,7 @@
 <data>
     <variable
         name="model"
-        type="com.alexbernat.homework9.Picture"/>
+        type="com.alexbernat.domain.entity.Picture"/>
 </data>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:scaleType="centerCrop"
-        app:loadImage="@{model.url}"/>
+        app:loadImage="@{model.link}"/>
 
 </RelativeLayout>
 </layout>
