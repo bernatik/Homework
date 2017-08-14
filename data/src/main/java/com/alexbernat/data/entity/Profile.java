@@ -1,9 +1,9 @@
-package com.alexbernat.domain.entity;
+package com.alexbernat.data.entity;
 
 /**
- * Created by Александр on 11.08.2017.
+ * Created by Александр on 14.08.2017.
  */
-public class Profile {
+public class Profile implements DataModel {
 
     private String name;
     private String surname;

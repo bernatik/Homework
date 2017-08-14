@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.alexbernat.domain.entity.Picture;
-import com.alexbernat.domain.interaction.PictureArrayUseCase;
 import com.alexbernat.homework.R;
 import com.alexbernat.homework.databinding.ItemHomework9Binding;
 import com.bumptech.glide.Glide;
@@ -24,7 +23,7 @@ public class Homework9Adapter extends RecyclerView.Adapter<Homework9Adapter.Home
     ArrayList<Picture> picturesList;
 
     public Homework9Adapter(){
-        picturesList = new PictureArrayUseCase().execute(10); //create use case to receive an array of pictures
+//        picturesList = new PictureArrayUseCase().execute(10); //create use case to receive an array of pictures
     }
 
     @Override

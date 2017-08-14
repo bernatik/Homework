@@ -3,13 +3,24 @@ package com.alexbernat.homework1;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.alexbernat.homework.R;
 
+import io.reactivex.annotations.NonNull;
+import io.reactivex.observers.DisposableObserver;
+import io.reactivex.subjects.BehaviorSubject;
+import io.reactivex.subjects.PublishSubject;
+import io.reactivex.subjects.ReplaySubject;
+
 public class Homework1Activity extends AppCompatActivity implements View.OnClickListener{
+
+    public PublishSubject<String> publishSubject = PublishSubject.create();
+    public BehaviorSubject<String> behaviorSubject = BehaviorSubject.create();
+    public ReplaySubject<String> replaySubject = ReplaySubject.create();
 
     public static final String KEY_USERNAME = "username";
     public static final String KEY_PASSWORD = "password";
@@ -27,6 +38,31 @@ public class Homework1Activity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acitivty_homework1);
+
+        replaySubject.onNext("One");
+        replaySubject.onNext("Two");
+        replaySubject.onNext("Three");
+        replaySubject.onNext("Four");
+        replaySubject.subscribeWith(new DisposableObserver<String>() {
+            @Override
+            public void onNext(@NonNull String s) {
+                Log.e("BEHAVIOR SUBJECT", s);
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+        replaySubject.onNext("Five");
+        replaySubject.onNext("Six");
+        replaySubject.onNext("Seven");
+
 
         tvUp = (TextView)findViewById(R.id.text_up);
         tvDown = (TextView)findViewById(R.id.text_down);

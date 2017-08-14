@@ -1,16 +1,15 @@
 package com.alexbernat.domain.interaction;
 
 import com.alexbernat.domain.entity.Picture;
-import com.alexbernat.domain.interaction.base.UseCase;
 
 import java.util.ArrayList;
 
 /**
  * Created by Александр on 14.08.2017.
  */
-public class PictureArrayUseCase extends UseCase<Integer, ArrayList<Picture>> {
-    @Override
-    protected ArrayList<Picture> buildUseCase() {
+public class PictureArrayUseCase  {
+
+        protected ArrayList<Picture> buildUseCase() {
 
         ArrayList<Picture> picturesList = new ArrayList<>();
         Picture picture1 = new Picture();
