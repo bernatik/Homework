@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.alexbernat.classwork9.Classwork9Activity;
 import com.alexbernat.homework.R;
 import com.alexbernat.homework1.Homework1Activity;
+import com.alexbernat.homework10.Homework10Activity;
 import com.alexbernat.homework2.Homework2Activity;
 import com.alexbernat.homework3.Homework3Activity;
 import com.alexbernat.homework4.Homework4Activity;
@@ -99,6 +100,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, Homework9Activity.class));
+            }
+        });
+
+        Button btnHomework10 = (Button)findViewById(R.id.button_homework10);
+        btnHomework10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, Homework10Activity.class));
             }
         });
     }

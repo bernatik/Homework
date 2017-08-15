@@ -3,81 +3,93 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_margin="@dimen/main_activity_margin"
-              android:orientation="vertical">
-    <Button
-        android:id="@+id/button_classwork"
-        style="@style/buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/main_activity_margin"
-        android:text="@string/button_classwork"/>
 
-    <Button
-        android:id="@+id/button_homework1"
-        style="@style/buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/main_activity_margin"
-        android:text="@string/button_homework1"/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="@dimen/main_activity_margin"
+                  android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button_homework2"
-        style="@style/buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/main_activity_margin"
-        android:text="@string/button_homework2"/>
+        <Button
+            android:id="@+id/button_classwork"
+            style="@style/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_activity_margin"
+            android:text="@string/button_classwork"/>
 
-    <Button
-        android:id="@+id/button_homework3"
-        style="@style/buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/main_activity_margin"
-        android:text="@string/button_homework3"/>
+        <Button
+            android:id="@+id/button_homework1"
+            style="@style/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_activity_margin"
+            android:text="@string/button_homework1"/>
 
-    <Button
-        android:id="@+id/button_homework4"
-        style="@style/buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/main_activity_margin"
-        android:text="@string/button_homework4"/>
+        <Button
+            android:id="@+id/button_homework2"
+            style="@style/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_activity_margin"
+            android:text="@string/button_homework2"/>
 
-    <Button
-        android:id="@+id/button_homework5"
-        style="@style/buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/main_activity_margin"
-        android:text="@string/button_homework5"/>
-    <Button
-        android:id="@+id/button_homework6"
-        style="@style/buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/main_activity_margin"
-        android:text="@string/button_homework6"/>
-    <Button
-        android:id="@+id/button_homework7"
-        style="@style/buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/main_activity_margin"
-        android:text="@string/button_homework7"/>
+        <Button
+            android:id="@+id/button_homework3"
+            style="@style/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_activity_margin"
+            android:text="@string/button_homework3"/>
 
-    <Button
-        android:id="@+id/button_homework9"
-        style="@style/buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/main_activity_margin"
-        android:text="@string/button_homework9"/>
+        <Button
+            android:id="@+id/button_homework4"
+            style="@style/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_activity_margin"
+            android:text="@string/button_homework4"/>
+
+        <Button
+            android:id="@+id/button_homework5"
+            style="@style/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_activity_margin"
+            android:text="@string/button_homework5"/>
+
+        <Button
+            android:id="@+id/button_homework6"
+            style="@style/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_activity_margin"
+            android:text="@string/button_homework6"/>
+
+        <Button
+            android:id="@+id/button_homework7"
+            style="@style/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_activity_margin"
+            android:text="@string/button_homework7"/>
+
+        <Button
+            android:id="@+id/button_homework9"
+            style="@style/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_activity_margin"
+            android:text="@string/button_homework9"/>
+
+        <Button
+            android:id="@+id/button_homework10"
+            style="@style/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_activity_margin"
+            android:text="@string/button_homework10"/>
 
 
-</LinearLayout>
+    </LinearLayout>
 </ScrollView>

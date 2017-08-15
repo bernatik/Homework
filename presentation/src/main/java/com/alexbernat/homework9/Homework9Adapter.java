@@ -41,7 +41,6 @@ public class Homework9Adapter extends RecyclerView.Adapter<Homework9Adapter.Home
 
     @Override
     public void onBindViewHolder(Homework9ViewHolder holder, int position) {
-//        Picture picture = itemViewModelsList.get(position);
         ItemViewModel itemViewModel = itemViewModelsList.get(position);
         holder.pictureBinding.setModel(itemViewModel);
     }
