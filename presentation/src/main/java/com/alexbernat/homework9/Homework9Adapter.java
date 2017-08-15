@@ -9,44 +9,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.alexbernat.domain.entity.Picture;
-import com.alexbernat.domain.interaction.PictureArrayUseCase;
 import com.alexbernat.homework.R;
 import com.alexbernat.homework.databinding.ItemHomework9Binding;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-import io.reactivex.annotations.NonNull;
-import io.reactivex.observers.DisposableObserver;
-
 /**
  * Created by Александр on 13.08.2017.
  */
 public class Homework9Adapter extends RecyclerView.Adapter<Homework9Adapter.Homework9ViewHolder> {
 
-    ArrayList<Picture> picturesList;
+    ArrayList<ItemViewModel> itemViewModelsList;
+    ItemViewModel mItemViewModel;
 
-    public Homework9Adapter(){
-//        ItemViewModel itemViewModel = new ItemViewModel();
-//        picturesList = itemViewModel.getPicturesArray();
+    public Homework9Adapter(ItemViewModel viewModel){
+        mItemViewModel = viewModel;
+        itemViewModelsList = mItemViewModel.getPicturesArray();
         Log.e("Adapter", "Write new ArrayList into Adapter");
-        new PictureArrayUseCase().execute(10, new DisposableObserver<ArrayList<Picture>>() {
-            @Override
-            public void onNext(@NonNull ArrayList<Picture> pictures) {
-                picturesList = pictures;
-            }
-
-            @Override
-            public void onError(@NonNull Throwable e) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        }); //create use case to receive an array of pictures
     }
 
     @Override
@@ -61,13 +41,14 @@ public class Homework9Adapter extends RecyclerView.Adapter<Homework9Adapter.Home
 
     @Override
     public void onBindViewHolder(Homework9ViewHolder holder, int position) {
-        Picture picture = picturesList.get(position);
-        holder.pictureBinding.setModel(picture);
+//        Picture picture = itemViewModelsList.get(position);
+        ItemViewModel itemViewModel = itemViewModelsList.get(position);
+        holder.pictureBinding.setModel(itemViewModel);
     }
 
     @Override
     public int getItemCount() {
-        return picturesList != null ? picturesList.size() : 0;
+        return itemViewModelsList != null ? itemViewModelsList.size() : 0;
     }
 
     @BindingAdapter("bind:loadImage")
@@ -86,4 +67,6 @@ public class Homework9Adapter extends RecyclerView.Adapter<Homework9Adapter.Home
 
 
     }
+
+
 }
