@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
+        <import type="android.view.View"/>
+        <import type="java.lang.String"/>
         <variable
             name="viewModel"
             type="com.alexbernat.homework10.Homework10ViewModel"/>
@@ -20,7 +22,13 @@
         android:layout_centerInParent="true"
         android:textSize="40sp"
         android:textColor="@android:color/black"
-        android:text="@{viewModel.currentNumber}"/>
+        android:text="@{String.valueOf(viewModel.currentNumber)}"/>
+
+    <!-- another approach to show only odd numbers
+
+        android:visibility="@{viewModel.currentNumber%2 == 0 ? View.VISIBLE : View.INVISIBLE}"
+
+    -->
 
 </RelativeLayout>
 </layout>

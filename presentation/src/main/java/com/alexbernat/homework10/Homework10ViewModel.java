@@ -20,7 +20,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class Homework10ViewModel implements BaseViewModel {
 
-    public ObservableField<String> currentNumber = new ObservableField<>();
+    public ObservableField<Long> currentNumber = new ObservableField<>();
     Disposable mDisposable;
     Activity mActivity;
 
@@ -52,7 +52,7 @@ public class Homework10ViewModel implements BaseViewModel {
                 .subscribe(new Consumer<Long>() {
                     @Override
                     public void accept(Long aLong) throws Exception {
-                        currentNumber.set(String.valueOf(aLong));
+                        currentNumber.set(aLong);
                     }
                 });
     }
