@@ -3,17 +3,22 @@ package com.alexbernat.homework9;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.alexbernat.domain.entity.Picture;
+import com.alexbernat.domain.interaction.PictureArrayUseCase;
 import com.alexbernat.homework.R;
 import com.alexbernat.homework.databinding.ItemHomework9Binding;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+
+import io.reactivex.annotations.NonNull;
+import io.reactivex.observers.DisposableObserver;
 
 /**
  * Created by Александр on 13.08.2017.
@@ -23,7 +28,25 @@ public class Homework9Adapter extends RecyclerView.Adapter<Homework9Adapter.Home
     ArrayList<Picture> picturesList;
 
     public Homework9Adapter(){
-//        picturesList = new PictureArrayUseCase().execute(10); //create use case to receive an array of pictures
+//        ItemViewModel itemViewModel = new ItemViewModel();
+//        picturesList = itemViewModel.getPicturesArray();
+        Log.e("Adapter", "Write new ArrayList into Adapter");
+        new PictureArrayUseCase().execute(10, new DisposableObserver<ArrayList<Picture>>() {
+            @Override
+            public void onNext(@NonNull ArrayList<Picture> pictures) {
+                picturesList = pictures;
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        }); //create use case to receive an array of pictures
     }
 
     @Override
