@@ -1,7 +1,5 @@
 package com.alexbernat.homework9;
 
-import android.util.Log;
-
 import com.alexbernat.base.BaseViewModel;
 import com.alexbernat.domain.entity.Picture;
 import com.alexbernat.domain.interaction.PictureArrayUseCase;
@@ -38,23 +36,22 @@ public class ItemViewModel implements BaseViewModel{
         @Override
         public void init() {
                 picturesArray = new ArrayList<>();
-                useCase.execute(10, new DisposableObserver<ArrayList<Picture>>() {
+                useCase.execute(10, new DisposableObserver<Picture>() {
                         @Override
-                        public void onNext(@NonNull ArrayList<Picture> pictures) { //transform Pictures into ItemViewModels
-                                for (Picture picture: pictures){
-                                        ItemViewModel viewModel = new ItemViewModel();
-                                        viewModel.setLink(picture.getLink());
-                                        picturesArray.add(viewModel);
-                                }
+                        public void onNext(@NonNull Picture picture) {
+                                ItemViewModel item = new ItemViewModel();
+                                item.setLink(picture.getLink());
+                                picturesArray.add(item);
                         }
 
                         @Override
                         public void onError(@NonNull Throwable e) {
+
                         }
 
                         @Override
                         public void onComplete() {
-                                Log.e("ItemViewModel", "ArrayList is created");
+
                         }
                 });
         }

@@ -4,17 +4,18 @@ import com.alexbernat.domain.entity.Picture;
 import com.alexbernat.domain.interaction.base.UseCase;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.Observable;
 
 /**
  * Created by Александр on 14.08.2017.
  */
-public class PictureArrayUseCase extends UseCase<Integer, ArrayList<Picture>> {
+public class PictureArrayUseCase extends UseCase<Integer, Picture> {
 
-        protected Observable<ArrayList<Picture>> buildUseCase() {
+        protected Observable<Picture> buildUseCase() {
 
-        ArrayList<Picture> picturesList = new ArrayList<>();
+        final List<Picture> picturesList = new ArrayList<>();
         Picture picture1 = new Picture();
         picture1.setLink("https://s-media-cache-ak0.pinimg.com/236x/ee/cf/37/eecf37527700cce34dc313737203ccc2--comedy-movies-hd-movies.jpg");
         picturesList.add(picture1);
@@ -46,6 +47,6 @@ public class PictureArrayUseCase extends UseCase<Integer, ArrayList<Picture>> {
         picture10.setLink("https://i.pinimg.com/236x/28/94/1f/28941fd4d1e50ba307b12cfdbce192bc--kung-fu-movies--movie.jpg");
         picturesList.add(picture10);
 
-        return Observable.just(picturesList);
+        return Observable.fromIterable(picturesList);
     }
 }
