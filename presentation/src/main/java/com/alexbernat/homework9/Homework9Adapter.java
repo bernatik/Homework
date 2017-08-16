@@ -13,19 +13,15 @@ import com.alexbernat.homework.R;
 import com.alexbernat.homework.databinding.ItemHomework9Binding;
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
-
 /**
  * Created by Александр on 13.08.2017.
  */
 public class Homework9Adapter extends RecyclerView.Adapter<Homework9Adapter.Homework9ViewHolder> {
 
-    ArrayList<ItemViewModel> itemViewModelsList;
     ItemViewModel mItemViewModel;
 
     public Homework9Adapter(ItemViewModel viewModel){
         mItemViewModel = viewModel;
-        itemViewModelsList = mItemViewModel.getPicturesArray();
         Log.e("Adapter", "Write new ArrayList into Adapter");
     }
 
@@ -41,13 +37,13 @@ public class Homework9Adapter extends RecyclerView.Adapter<Homework9Adapter.Home
 
     @Override
     public void onBindViewHolder(Homework9ViewHolder holder, int position) {
-        ItemViewModel itemViewModel = itemViewModelsList.get(position);
+        ItemViewModel itemViewModel = mItemViewModel.getPictureFromArray(position);
         holder.pictureBinding.setModel(itemViewModel);
     }
 
     @Override
     public int getItemCount() {
-        return itemViewModelsList != null ? itemViewModelsList.size() : 0;
+        return mItemViewModel.getPicturesCount();
     }
 
     @BindingAdapter("bind:loadImage")

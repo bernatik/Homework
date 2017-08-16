@@ -33,6 +33,14 @@ public class ItemViewModel implements BaseViewModel{
                 return picturesArray;
         }
 
+        public int getPicturesCount(){
+                return picturesArray.size();
+        }
+
+        public ItemViewModel getPictureFromArray(int index){
+                return picturesArray.get(index);
+        }
+
         @Override
         public void init() {
                 picturesArray = new ArrayList<>();
