@@ -17,6 +17,7 @@
     tools:context="com.alexbernat.homework10.Homework10Activity">
 
     <TextView
+        android:id="@+id/text_homework10_even"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -24,11 +25,23 @@
         android:textColor="@android:color/black"
         android:text="@{String.valueOf(viewModel.currentNumber)}"/>
 
-    <!-- another approach to show only odd numbers
+    <!-- another approach to show only even numbers
 
         android:visibility="@{viewModel.currentNumber%2 == 0 ? View.VISIBLE : View.INVISIBLE}"
 
     -->
+
+    <TextView
+        android:id="@+id/text_homework10_odd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/text_homework10_even"
+        android:layout_centerHorizontal="true"
+        android:textSize="40sp"
+        android:textColor="@color/color_blue"
+        android:text="@{String.valueOf(viewModel.currentOddNumber)}"
+        android:visibility="@{viewModel.currentOddNumber%2 != 0 ? View.VISIBLE : View.INVISIBLE}"/>
 
 </RelativeLayout>
 </layout>

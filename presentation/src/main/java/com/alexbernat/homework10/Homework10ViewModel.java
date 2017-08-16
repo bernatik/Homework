@@ -21,6 +21,7 @@ import io.reactivex.schedulers.Schedulers;
 public class Homework10ViewModel implements BaseViewModel {
 
     public ObservableField<Long> currentNumber = new ObservableField<>();
+    public ObservableField<Long> currentOddNumber = new ObservableField<>();
     Disposable mDisposable;
     Activity mActivity;
 
@@ -43,6 +44,12 @@ public class Homework10ViewModel implements BaseViewModel {
         mDisposable = Observable.interval(1000, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
+                .doOnNext(new Consumer<Long>() {
+                    @Override
+                    public void accept(Long aLong) throws Exception {
+                        currentOddNumber.set(aLong);
+                    }
+                })
                 .filter(new Predicate<Long>() {
                     @Override
                     public boolean test(@NonNull Long aLong) throws Exception {
