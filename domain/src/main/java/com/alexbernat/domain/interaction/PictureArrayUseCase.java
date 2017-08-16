@@ -13,7 +13,7 @@ import io.reactivex.Observable;
  */
 public class PictureArrayUseCase extends UseCase<Integer, Picture> {
 
-        protected Observable<Picture> buildUseCase() {
+        protected Observable<Picture> buildUseCase(Integer integer) {
 
         final List<Picture> picturesList = new ArrayList<>();
         Picture picture1 = new Picture();

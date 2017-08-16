@@ -29,6 +29,7 @@
         <item name="android:fontFamily">sans-serif-monospace</item>
     </style>
 
+    <!-- Style for Text on Homework 10 -->
     <style name="homework10_text_style">
         <item name="android:textSize">40sp</item>
         <item name="android:textStyle">bold</item>

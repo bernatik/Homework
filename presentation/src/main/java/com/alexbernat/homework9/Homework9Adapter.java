@@ -22,7 +22,7 @@ public class Homework9Adapter extends RecyclerView.Adapter<Homework9Adapter.Home
 
     public Homework9Adapter(ItemViewModel viewModel){
         mItemViewModel = viewModel;
-        Log.e("Adapter", "Write new ArrayList into Adapter");
+        Log.e("Adapter", "Create Adapter");
     }
 
     @Override

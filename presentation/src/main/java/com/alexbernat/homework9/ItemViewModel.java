@@ -1,5 +1,7 @@
 package com.alexbernat.homework9;
 
+import android.util.Log;
+
 import com.alexbernat.base.BaseViewModel;
 import com.alexbernat.domain.entity.Picture;
 import com.alexbernat.domain.interaction.PictureArrayUseCase;
@@ -15,11 +17,10 @@ import io.reactivex.observers.DisposableObserver;
 public class ItemViewModel implements BaseViewModel{
 
         String link;
-        ArrayList<ItemViewModel> picturesArray;
+        private ArrayList<ItemViewModel> picturesArray;
         private PictureArrayUseCase useCase = new PictureArrayUseCase();
 
-        public ItemViewModel(){
-        }
+        public ItemViewModel(){}
 
         public String getLink() {
                 return link;
@@ -27,10 +28,6 @@ public class ItemViewModel implements BaseViewModel{
 
         public void setLink(String link) {
                 this.link = link;
-        }
-
-        public ArrayList<ItemViewModel> getPicturesArray() {
-                return picturesArray;
         }
 
         public int getPicturesCount(){
@@ -50,6 +47,7 @@ public class ItemViewModel implements BaseViewModel{
                                 ItemViewModel item = new ItemViewModel();
                                 item.setLink(picture.getLink());
                                 picturesArray.add(item);
+                            Log.e("AAA", "new ItemViewModel is created");
                         }
 
                         @Override

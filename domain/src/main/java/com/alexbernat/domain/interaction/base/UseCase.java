@@ -13,10 +13,10 @@ public abstract class UseCase<InParam, OutParam> {
 
     private Disposable disposable; //сылка на подписчика (раньше был Subscriber)
 
-    abstract protected Observable<OutParam> buildUseCase(); //возвращаем поток информации
+    abstract protected Observable<OutParam> buildUseCase(InParam param); //возвращаем поток информации
 
     public void execute(InParam param, DisposableObserver<OutParam> disposableObserver){ //Observer - подписчик
-        disposable = buildUseCase()
+        disposable = buildUseCase(param)
                 .observeOn(AndroidSchedulers.mainThread()) //инфа будет приходить в UI поток (наблюдаем в UI)
                 .subscribeOn(Schedulers.newThread()) //запрос и обработка в отдельном потоке (выполняем в другом)
                 .subscribeWith(disposableObserver);  //подписываем подписчика + ЗАПУСК этого кода

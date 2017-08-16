@@ -9,6 +9,7 @@ import com.alexbernat.base.BaseViewModel;
 import com.alexbernat.domain.entity.ProfileId;
 import com.alexbernat.domain.entity.ProfileModel;
 import com.alexbernat.domain.interaction.ProfileUseCase;
+import com.alexbernat.domain.interaction.SaveProfileUseCase;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.DisposableObserver;
@@ -29,6 +30,7 @@ public class Classwork9ViewModel implements BaseViewModel {
     public Activity activity;
 
     private ProfileUseCase useCase = new ProfileUseCase();
+    private SaveProfileUseCase saveUseCase = new SaveProfileUseCase();
 
     public Classwork9ViewModel(Activity activity) {
         this.activity = activity;
@@ -68,6 +70,26 @@ public class Classwork9ViewModel implements BaseViewModel {
             }
         });
 
+        ProfileModel profileModel = new ProfileModel();
+        profileModel.setAge(28);
+        profileModel.setName("Sasha");
+        profileModel.setSurname("Bernat");
+        saveUseCase.execute(profileModel, new DisposableObserver<Void>() {
+            @Override
+            public void onNext(@NonNull Void aVoid) {
+                Log.e("AAA", "OK");
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+                Log.e("AAA", "error = " + e);
+            }
+
+            @Override
+            public void onComplete() {
+                Log.e("AAA", "Profile Saved");
+            }
+        });
 
 
     }
@@ -75,6 +97,7 @@ public class Classwork9ViewModel implements BaseViewModel {
     @Override
     public void pause() {
         useCase.dispose();
+        saveUseCase.dispose();
     }
 
 }
