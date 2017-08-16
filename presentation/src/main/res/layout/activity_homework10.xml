@@ -1,47 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <data>
+
         <import type="android.view.View"/>
+
         <import type="java.lang.String"/>
+
         <variable
             name="viewModel"
             type="com.alexbernat.homework10.Homework10ViewModel"/>
     </data>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.alexbernat.homework10.Homework10Activity">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.alexbernat.homework10.Homework10Activity">
 
-    <TextView
-        android:id="@+id/text_homework10_even"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="40sp"
-        android:textColor="@android:color/black"
-        android:text="@{String.valueOf(viewModel.currentNumber)}"/>
+        <TextView
+            android:id="@+id/text_homework10_label_even"
+            style="@style/homework10_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="even numbers: "/>
 
-    <!-- another approach to show only even numbers
+        <TextView
+            android:id="@+id/text_homework10_even"
+            style="@style/homework10_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_homework10_label_even"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:text="@{String.valueOf(viewModel.currentNumber)}"
+            app:changeColor="@{viewModel.currentNumber}"/>
 
-        android:visibility="@{viewModel.currentNumber%2 == 0 ? View.VISIBLE : View.INVISIBLE}"
+        <!-- another approach to show only even numbers
 
-    -->
+            android:visibility="@{viewModel.currentNumber%2 == 0 ? View.VISIBLE : View.INVISIBLE}"
 
-    <TextView
-        android:id="@+id/text_homework10_odd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/text_homework10_even"
-        android:layout_centerHorizontal="true"
-        android:textSize="40sp"
-        android:textColor="@color/color_blue"
-        android:text="@{String.valueOf(viewModel.currentOddNumber)}"
-        android:visibility="@{viewModel.currentOddNumber%2 != 0 ? View.VISIBLE : View.INVISIBLE}"/>
+        -->
+        <TextView
+            android:id="@+id/text_homework10_label_odd"
+            style="@style/homework10_text_style"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="odd numbers:"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/text_homework10_odd"
+            style="@style/homework10_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_homework10_label_odd"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@{String.valueOf(viewModel.currentOddNumber)}"
+            app:changeColor="@{viewModel.currentOddNumber}"
+            android:visibility="@{viewModel.currentOddNumber%2 != 0 ? View.VISIBLE : View.INVISIBLE}"/>
+
+    </RelativeLayout>
 </layout>

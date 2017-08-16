@@ -1,9 +1,12 @@
 package com.alexbernat.homework10;
 
 import android.app.Activity;
+import android.databinding.BindingAdapter;
 import android.databinding.ObservableField;
+import android.widget.TextView;
 
 import com.alexbernat.base.BaseViewModel;
+import com.alexbernat.homework.R;
 
 import java.util.concurrent.TimeUnit;
 
@@ -68,5 +71,20 @@ public class Homework10ViewModel implements BaseViewModel {
     public void pause() {
         if (!mDisposable.isDisposed())
             mDisposable.dispose();
+    }
+
+    @BindingAdapter("bind:changeColor")
+    public static void changeColor(TextView view, long number){
+        if (number % 8 == 0){
+            view.setTextColor(view.getContext().getResources().getColor(R.color.color_blue));
+        } else if (number % 6 == 0){
+            view.setTextColor(view.getContext().getResources().getColor(R.color.color_yellow));
+        } else if (number % 2 == 0){
+            view.setTextColor(view.getContext().getResources().getColor(R.color.color_green));
+        } else if (number % 5 == 0){
+            view.setTextColor(view.getContext().getResources().getColor(R.color.color_red));
+        } else
+            view.setTextColor(view.getContext().getResources().getColor(android.R.color.black));
+
     }
 }
