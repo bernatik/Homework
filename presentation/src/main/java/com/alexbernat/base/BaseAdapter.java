@@ -1,6 +1,7 @@
 package com.alexbernat.base;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ public abstract class BaseAdapter<Model, ViewModel extends BaseItemViewModel<Mod
     public void setItems(List<Model> newItems) {
         items.clear();
         items.addAll(newItems);
+        Log.e("BASE ADAPTER", "setItems()");
         notifyDataSetChanged();
     }
 

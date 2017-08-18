@@ -20,12 +20,13 @@ public class Classwork12ViewModel implements BaseViewModel {
 
     public enum STATE {PROGRESS, DATA}
     public ObservableField<STATE> state = new ObservableField<>(STATE.PROGRESS);
+//    public ObservableField<String> temp = new ObservableField<>("");
 
     private GetProfileListUseCase getProfileListUseCase = new GetProfileListUseCase();
 
     private Activity activity;
 
-    public ProfileAdapter adapter = new ProfileAdapter(activity);
+    public ProfileAdapter adapter = new ProfileAdapter();
 
     public Classwork12ViewModel(Activity activity){
         this.activity = activity;
@@ -48,7 +49,13 @@ public class Classwork12ViewModel implements BaseViewModel {
             public void onNext(@NonNull List<? extends ProfileModel> profileModels) {
                 Log.e("AAA", "items = " + profileModels.size());
                 adapter.setItems((List<ProfileModel>) profileModels);
+                adapter.notifyDataSetChanged();
                 state.set(STATE.DATA);
+//                StringBuilder builder = new StringBuilder();
+//                for (ProfileModel profileModel: profileModels){
+//                    builder.append(profileModel.getName());
+//                }
+//                temp.set(builder.toString());
             }
 
             @Override
@@ -67,6 +74,15 @@ public class Classwork12ViewModel implements BaseViewModel {
     public void pause() {
 
     }
+
+    public ProfileAdapter getAdapter() {
+        return adapter;
+    }
+
+    public void setAdapter(ProfileAdapter adapter) {
+        this.adapter = adapter;
+    }
+
 
 
 }

@@ -29,4 +29,5 @@ public abstract class BaseItemViewHolder<Model,
         viewModel.release();
     }
 
+
 }

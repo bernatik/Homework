@@ -17,6 +17,7 @@ public class ProfileItemViewHolder extends BaseItemViewHolder<ProfileModel,
 
     public ProfileItemViewHolder(ItemClasswork12Binding dataBinding, ProfileItemViewModel viewModel) {
         super(dataBinding, viewModel);
+        dataBinding.setViewModel(viewModel);
     }
 
     public static ProfileItemViewHolder create(LayoutInflater inflater, ViewGroup parent, ProfileItemViewModel viewModel){
