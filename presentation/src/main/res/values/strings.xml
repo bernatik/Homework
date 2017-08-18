@@ -2,7 +2,7 @@
     <string name="app_name">Android Development</string>
 
     <!-- Strings for Main Activity -->
-    <string name="button_classwork">Recent Classwork (9)</string>
+    <string name="button_classwork">Recent Classwork (12)</string>
     <string name="button_homework1">Homework 1</string>
     <string name="button_homework2">Homework 2</string>
     <string name="button_homework3">Homework 3</string>
