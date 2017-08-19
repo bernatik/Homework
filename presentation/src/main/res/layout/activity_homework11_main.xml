@@ -2,10 +2,10 @@
 <layout>
 <data>
     <import type="android.view.View"/>
-    <import type="com.alexbernat.homework11.Homework11ViewModel.STATE"/>
+    <import type="com.alexbernat.homework11.Homework11MainActivityViewModel.STATE"/>
     <variable
         name="viewModel"
-        type="com.alexbernat.homework11.Homework11ViewModel"/>
+        type="com.alexbernat.homework11.Homework11MainActivityViewModel"/>
 </data>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -25,6 +25,15 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:visibility="@{viewModel.state == STATE.PROGRESS ? View.VISIBLE : View.INVISIBLE}"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="@{viewModel::openActivityToAddProfile}"
+        android:src="@drawable/ic_plus"/>
 
 </RelativeLayout>
 </layout>

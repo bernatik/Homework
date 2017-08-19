@@ -51,5 +51,8 @@
     <string name="text_homework5_off">Wifi OFF</string>
     <string name="text_homework5_on">Wifi ON</string>
 
+    <!-- Strings for Homework 11 -->
+    <string name="homework11_edit">Edit</string>
+    <string name="homework11_add">Add</string>
 
 </resources>
