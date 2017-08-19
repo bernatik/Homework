@@ -46,6 +46,7 @@
         <activity android:name="com.alexbernat.homework9.Homework9Activity"/>
         <activity android:name="com.alexbernat.homework10.Homework10Activity"/>
         <activity android:name="com.alexbernat.classwork12.Classwork12Activity"/>
+        <activity android:name="com.alexbernat.homework11.Homework11Activity"/>
     </application>
 
 </manifest>
