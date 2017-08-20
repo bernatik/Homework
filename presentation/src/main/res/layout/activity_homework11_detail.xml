@@ -2,7 +2,7 @@
 <layout>
 
     <data>
-
+        <import type="com.alexbernat.homework11.Homework11DetailActivityViewModel.STATE"/>
         <variable
             name="viewModel"
             type="com.alexbernat.homework11.Homework11DetailActivityViewModel"/>
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_margin="16dp"
-            android:enabled="@{viewModel.isAddStatus}"
+            android:enabled="@{viewModel.state == STATE.EDIT ? false : true}"
             android:hint="name"
             android:text="@={viewModel.name}"
             android:imeOptions="actionDone"
@@ -33,7 +33,7 @@
             android:layout_below="@id/homework11_edit_name"
             android:layout_centerHorizontal="true"
             android:layout_margin="16dp"
-            android:enabled="@{viewModel.isAddStatus}"
+            android:enabled="@{viewModel.state == STATE.EDIT ? false : true}"
             android:text="@={viewModel.surname}"
             android:hint="surname"
             android:imeOptions="actionDone"
@@ -47,7 +47,7 @@
             android:layout_below="@id/homework11_edit_surname"
             android:layout_centerHorizontal="true"
             android:layout_margin="16dp"
-            android:enabled="@{viewModel.isAddStatus}"
+            android:enabled="@{viewModel.state == STATE.EDIT ? false : true}"
             android:text="@={viewModel.age}"
             android:hint="age"
             android:imeOptions="actionDone"
@@ -60,7 +60,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_margin="16dp"
-            android:text="@{viewModel.isAddStatus ? @string/homework11_add : @string/homework11_edit}"
+            android:text="@{viewModel.state == STATE.ADD ? @string/homework11_add : @string/homework11_edit}"
             android:onClick="@{viewModel::doAction}"/>
 
     </RelativeLayout>

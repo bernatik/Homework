@@ -10,8 +10,6 @@ import com.alexbernat.data.entity.Homework11Profile;
 import com.alexbernat.data.net.Homework11RestService;
 import com.alexbernat.homework.R;
 
-import java.util.List;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.DisposableObserver;
@@ -37,22 +35,18 @@ public class Homework11TestActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Homework11Profile profile = new Homework11Profile();
-//                profile.setName(name.getText().toString());
-//                profile.setSurname(surname.getText().toString());
-//                profile.setAge(Integer.parseInt(age.getText().toString()));
+                Homework11Profile profile = new Homework11Profile();
+                profile.setName(name.getText().toString() + "_new");
+                profile.setSurname(surname.getText().toString() + "_new");
+                profile.setAge(Integer.parseInt(age.getText().toString()));
 
-                Homework11RestService.getInstance().getListProfiles()
+                Homework11RestService.getInstance().editProfile("93A59542-24F2-DB15-FFCC-CF88D41FCC00", profile)
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeOn(Schedulers.newThread())
-                        .subscribe(new DisposableObserver<List<Homework11Profile>>() {
+                        .subscribe(new DisposableObserver<Void>() {
                             @Override
-                            public void onNext(@NonNull List<Homework11Profile> homework11Profiles) {
-                                StringBuilder builder = new StringBuilder();
-                for (Homework11Profile profileModel: homework11Profiles){
-                                    builder.append(profileModel.getName());
-                                }
-                                name.setText(builder.toString());
+                            public void onNext(@NonNull Void aVoid) {
+
                             }
 
                             @Override
@@ -65,7 +59,7 @@ public class Homework11TestActivity extends AppCompatActivity {
 
                             }
                         });
-                }
+            }
         });
     }
 }

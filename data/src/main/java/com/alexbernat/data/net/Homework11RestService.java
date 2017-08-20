@@ -73,7 +73,7 @@ public class Homework11RestService implements Homework11RestApi {
     }
 
     @Override
-    public Observable<Void> editProfile(@Query("id") String objectId) {
-        return restApi.editProfile(objectId);
+    public Observable<Void> editProfile(@Query("id") String objectId, @Body Homework11Profile profile) {
+        return restApi.editProfile(objectId, profile);
     }
 }

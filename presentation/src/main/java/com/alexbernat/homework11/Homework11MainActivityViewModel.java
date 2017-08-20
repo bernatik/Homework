@@ -39,7 +39,6 @@ public class Homework11MainActivityViewModel implements BaseViewModel {
 
     @Override
     public void release() {
-        getProfileListUseCase.dispose();
     }
 
     @Override
@@ -54,12 +53,10 @@ public class Homework11MainActivityViewModel implements BaseViewModel {
 
             @Override
             public void onError(@NonNull Throwable e) {
-
             }
 
             @Override
             public void onComplete() {
-
             }
         });
     }
@@ -71,11 +68,10 @@ public class Homework11MainActivityViewModel implements BaseViewModel {
 
     public void openActivityToAddProfile(View view){
         Intent intent = new Intent(mActivity, Homework11DetailActivity.class);
-        intent.putExtra(Homework11DetailActivityViewModel.KEY_STATUS, true);
         mActivity.startActivity(intent);
     }
 
-    public Homework11Adapter getAdapter() {
+        public Homework11Adapter getAdapter() {
         return adapter;
     }
 }

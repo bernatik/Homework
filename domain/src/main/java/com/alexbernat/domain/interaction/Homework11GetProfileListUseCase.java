@@ -29,6 +29,7 @@ public class Homework11GetProfileListUseCase extends UseCase<Void, List<Homework
                             profileModel.setName(profile.getName());
                             profileModel.setSurname(profile.getSurname());
                             profileModel.setAge(profile.getAge());
+                            profileModel.setStringId(profile.getStringId());
                             newList.add(profileModel);
                         }
                         return newList;

@@ -20,6 +20,9 @@ public class Homework11ItemViewHolder extends BaseItemViewHolder <Homework11Prof
 
     public static Homework11ItemViewHolder create(LayoutInflater layoutInflater, ViewGroup parent, Homework11ItemViewModel viewModel){
         ItemHomework11Binding binding = ItemHomework11Binding.inflate(layoutInflater, parent, false);
+        viewModel.setContext(parent.getContext());
         return new Homework11ItemViewHolder(binding, viewModel);
     }
+
+
 }
