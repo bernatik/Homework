@@ -18,6 +18,7 @@
         android:id="@+id/homework11_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:adapter="@{viewModel.adapter}"
         android:visibility="@{viewModel.state == STATE.DATA ? View.VISIBLE : View.INVISIBLE}"/>
 
     <ProgressBar

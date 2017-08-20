@@ -2,6 +2,7 @@ package com.alexbernat.homework11;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 
 import com.alexbernat.base.BaseActivity;
 import com.alexbernat.homework.R;
@@ -19,6 +20,8 @@ public class Homework11MainActivity extends BaseActivity {
                 DataBindingUtil.setContentView(this, R.layout.activity_homework11_main);
 
         binding.setViewModel(viewModel);
+
+        binding.homework11RecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         super.onCreate(savedInstanceState);
     }
