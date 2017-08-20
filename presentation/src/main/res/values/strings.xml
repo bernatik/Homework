@@ -53,6 +53,6 @@
 
     <!-- Strings for Homework 11 -->
     <string name="homework11_edit">Edit</string>
-    <string name="homework11_add">Add</string>
+    <string name="homework11_add">Save</string>
 
 </resources>

@@ -60,7 +60,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_margin="16dp"
-            android:text="@{viewModel.state == STATE.ADD ? @string/homework11_add : @string/homework11_edit}"
+            android:text="@{viewModel.state == STATE.ADD || viewModel.state == STATE.SAVE ? @string/homework11_add : @string/homework11_edit}"
             android:onClick="@{viewModel::doAction}"/>
 
     </RelativeLayout>

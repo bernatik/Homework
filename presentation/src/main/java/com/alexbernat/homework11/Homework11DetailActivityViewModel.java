@@ -59,24 +59,7 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
 
     @Override
     public void resume() {
-
-        getProfileByIdUseCase.execute(objectId.get(), new DisposableObserver<Homework11ProfileModel>() {
-            @Override
-            public void onNext(@NonNull Homework11ProfileModel homework11ProfileModel) {
-                name.set(homework11ProfileModel.getName());
-                surname.set(homework11ProfileModel.getSurname());
-                age.set(String.valueOf(homework11ProfileModel.getAge()));
-                Log.e("AAA", "name is " + homework11ProfileModel.getName());
-            }
-
-            @Override
-            public void onError(@NonNull Throwable e) {
-            }
-
-            @Override
-            public void onComplete() {
-            }
-        });
+        getProfileById();
     }
 
     @Override
@@ -108,6 +91,26 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
                 updateCurrentProfile(profileModel);
 
         }
+    }
+
+    private void getProfileById(){
+        getProfileByIdUseCase.execute(objectId.get(), new DisposableObserver<Homework11ProfileModel>() {
+            @Override
+            public void onNext(@NonNull Homework11ProfileModel homework11ProfileModel) {
+                name.set(homework11ProfileModel.getName());
+                surname.set(homework11ProfileModel.getSurname());
+                age.set(String.valueOf(homework11ProfileModel.getAge()));
+                Log.e("AAA", "name is " + homework11ProfileModel.getName());
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+            }
+
+            @Override
+            public void onComplete() {
+            }
+        });
     }
 
     private void createNewProfile(Homework11ProfileModel profileModel){
@@ -145,4 +148,5 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
             }
         });
     }
+
 }
