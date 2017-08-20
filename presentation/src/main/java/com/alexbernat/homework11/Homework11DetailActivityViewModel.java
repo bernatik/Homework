@@ -3,6 +3,7 @@ package com.alexbernat.homework11;
 import android.app.Activity;
 import android.content.Intent;
 import android.databinding.ObservableField;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -15,6 +16,9 @@ import com.alexbernat.domain.interaction.Homework11UpdateProfileUseCase;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.DisposableObserver;
+
+import static com.alexbernat.homework11.Homework11DetailActivityViewModel.STATE.EDIT;
+import static com.alexbernat.homework11.Homework11DetailActivityViewModel.STATE.SAVE;
 
 /**
  * Created by Александр on 19.08.2017.
@@ -47,7 +51,7 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
     public void init() {
         Intent intent = mActivity.getIntent();
         if (intent != null && intent.hasExtra(KEY_ITEM_TO_EDIT)) {
-            state.set(STATE.EDIT);
+            state.set(EDIT);
             objectId.set(intent.getStringExtra(KEY_ITEM_TO_EDIT));
             Log.e("AAA", "Click on item " + objectId.get());
         }
@@ -68,11 +72,18 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
     }
 
     public void doAction(View view){
+
+        /* check all fields to have a value */
+        if (hasEmptyFields()) {
+            Toast.makeText(mActivity, "Fill all fields!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         /* create a profile model to put into retrofit query */
         final Homework11ProfileModel profileModel = new Homework11ProfileModel();
         profileModel.setName(name.get());
         profileModel.setSurname(surname.get());
-        profileModel.setAge(Integer.parseInt(age.get()));
+        profileModel.setAge(Integer.valueOf(age.get()));
 
         switch (state.get()){
             case ADD:
@@ -82,7 +93,7 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
 
             case EDIT:
 
-                state.set(STATE.SAVE); //make edit enabled
+                state.set(SAVE); //make edit enabled
                 break;
 
             case SAVE:
@@ -117,7 +128,7 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
         createProfileUseCase.execute(profileModel, new DisposableObserver<Void>() {
             @Override
             public void onNext(@NonNull Void aVoid) {
-                Toast.makeText(mActivity, "Profile created", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity.getApplicationContext(), "Profile created", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -147,6 +158,14 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
 
             }
         });
+    }
+
+    private boolean hasEmptyFields(){
+        if (TextUtils.isEmpty(name.get())||
+                TextUtils.isEmpty(surname.get()) ||
+                TextUtils.isEmpty(age.get()))
+            return true;
+        return false;
     }
 
 }
