@@ -21,6 +21,13 @@
         app:adapter="@{viewModel.adapter}"
         android:visibility="@{viewModel.state == STATE.DATA ? View.VISIBLE : View.INVISIBLE}"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@{viewModel.state == STATE.NO_DATA ? @string/homework11_no_profiles : @string/homework11_no_internet_connection}"
+        android:visibility="@{viewModel.state == STATE.NO_DATA || viewModel.state == STATE.ERROR ? View.VISIBLE : View.INVISIBLE}"/>
+
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

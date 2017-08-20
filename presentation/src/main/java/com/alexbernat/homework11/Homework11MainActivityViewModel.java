@@ -19,7 +19,7 @@ import io.reactivex.observers.DisposableObserver;
  */
 public class Homework11MainActivityViewModel implements BaseViewModel {
 
-    public enum STATE {DATA, PROGRESS};
+    public enum STATE {DATA, PROGRESS, NO_DATA, ERROR};
     public ObservableField<STATE> state = new ObservableField<>(STATE.PROGRESS);
 
     private Homework11GetProfileListUseCase getProfileListUseCase = new Homework11GetProfileListUseCase();
@@ -46,13 +46,19 @@ public class Homework11MainActivityViewModel implements BaseViewModel {
         getProfileListUseCase.execute(null, new DisposableObserver<List<Homework11ProfileModel>>() {
             @Override
             public void onNext(@NonNull List<Homework11ProfileModel> homework11ProfileModels) {
-                adapter.setItems(homework11ProfileModels);
-                adapter.notifyDataSetChanged();
-                state.set(STATE.DATA);
+
+                if (homework11ProfileModels.size() == 0){
+                    state.set(STATE.NO_DATA);
+                } else {
+                    adapter.setItems(homework11ProfileModels);
+                    adapter.notifyDataSetChanged();
+                    state.set(STATE.DATA);
+                }
             }
 
             @Override
             public void onError(@NonNull Throwable e) {
+                state.set(STATE.ERROR);
             }
 
             @Override

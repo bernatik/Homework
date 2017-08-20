@@ -84,6 +84,7 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
         profileModel.setName(name.get());
         profileModel.setSurname(surname.get());
         profileModel.setAge(Integer.valueOf(age.get()));
+        profileModel.setStringId(objectId.get());
 
         switch (state.get()){
             case ADD:
@@ -98,9 +99,7 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
 
             case SAVE:
 
-                profileModel.setStringId(objectId.get());
                 updateCurrentProfile(profileModel);
-
         }
     }
 

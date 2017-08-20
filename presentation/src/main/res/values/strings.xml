@@ -54,5 +54,7 @@
     <!-- Strings for Homework 11 -->
     <string name="homework11_edit">Edit</string>
     <string name="homework11_add">Save</string>
+    <string name="homework11_no_profiles">You have no profiles yet.\n Click \"+\" to add the first one!</string>
+    <string name="homework11_no_internet_connection">Something went wrong. Try again later.</string>
 
 </resources>
