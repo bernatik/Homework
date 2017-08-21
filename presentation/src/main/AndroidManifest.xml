@@ -46,11 +46,12 @@
         <activity android:name="com.alexbernat.homework9.Homework9Activity"/>
         <activity android:name="com.alexbernat.homework10.Homework10Activity"/>
         <activity android:name="com.alexbernat.classwork12.Classwork12Activity"/>
-        <activity android:name="com.alexbernat.homework11.Homework11MainActivity"
+        <activity
+            android:name="com.alexbernat.homework11.Homework11MainActivity"
             android:launchMode="singleTask"/>
         <activity android:name="com.alexbernat.homework11.Homework11DetailActivity"/>
-        <activity android:name="com.alexbernat.homework11.Homework11TestActivity">
-        </activity>
+        <activity android:name="com.alexbernat.homework11.Homework11TestActivity"/>
+        <activity android:name="com.alexbernat.classwork13.Classwork13Activity"/>
     </application>
 
 </manifest>

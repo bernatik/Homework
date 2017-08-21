@@ -71,6 +71,7 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
 
     }
 
+    /* button click */
     public void doAction(View view){
 
         /* check all fields to have a value */
