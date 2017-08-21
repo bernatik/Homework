@@ -95,12 +95,16 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
             case EDIT:
 
                 state.set(SAVE); //make edit enabled
-                break;
+                return;
 
             case SAVE:
 
                 updateCurrentProfile(profileModel);
+                break;
         }
+
+        mActivity.startActivity(new Intent(mActivity, Homework11MainActivity.class));
+        mActivity.finish();
     }
 
     private void getProfileById(){
@@ -127,6 +131,7 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
         createProfileUseCase.execute(profileModel, new DisposableObserver<Void>() {
             @Override
             public void onNext(@NonNull Void aVoid) {
+                Log.e("AAAA", "Create new profile");
                 Toast.makeText(mActivity.getApplicationContext(), "Profile created", Toast.LENGTH_SHORT).show();
             }
 
