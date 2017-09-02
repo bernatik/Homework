@@ -129,19 +129,20 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
     }
 
     private void createNewProfile(Homework11ProfileModel profileModel){
-        createProfileUseCase.execute(profileModel, new DisposableObserver<Void>() {
+        createProfileUseCase.execute(profileModel, new DisposableObserver<String>() {
             @Override
-            public void onNext(@NonNull Void aVoid) {
-                Log.e("AAAA", "Create new profile");
-                Toast.makeText(mActivity.getApplicationContext(), "Profile created", Toast.LENGTH_SHORT).show();
+            public void onNext(@NonNull String s) {
+                Toast.makeText(mActivity.getApplicationContext(), s, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(@NonNull Throwable e) {
+
             }
 
             @Override
             public void onComplete() {
+
             }
         });
     }
