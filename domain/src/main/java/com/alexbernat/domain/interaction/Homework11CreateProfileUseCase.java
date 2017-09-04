@@ -26,7 +26,7 @@ public class Homework11CreateProfileUseCase extends UseCase<Homework11ProfileMod
                 .map(new Function<Void, String>() {
                     @Override
                     public String apply(@NonNull Void aVoid) throws Exception {
-                        return "OK";
+                        return "User created";
                     }
                 });
     }
