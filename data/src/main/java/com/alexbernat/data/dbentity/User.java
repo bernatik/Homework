@@ -1,20 +1,20 @@
-package com.alexbernat.classwork15;
+package com.alexbernat.data.dbentity;
 
 /**
  * Created by Александр on 04.09.2017.
  */
 public class User {
 
-    private String id;
+    private int id;
     private String name;
     private int age;
     private Country country;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
