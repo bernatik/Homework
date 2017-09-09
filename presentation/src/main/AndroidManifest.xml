@@ -54,7 +54,8 @@
         <activity android:name="com.alexbernat.classwork13.Classwork13Activity"/>
         <activity android:name="com.alexbernat.classwork14.Classwork14Activity"/>
         <activity android:name="com.alexbernat.classwork16.Classwork16Activity"/>
-
+        <activity android:name="com.alexbernat.homework14.Homework14Activity">
+        </activity>
     </application>
 
 </manifest>
