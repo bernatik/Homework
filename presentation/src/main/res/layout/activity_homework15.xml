@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.alexbernat.homework15.Homework15ActivityViewModel"/>
+    </data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/homework16_edit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@={viewModel.name}"
+            android:layout_margin="16dp"
+            android:hint="name"
+            android:imeOptions="actionDone"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/homework16_edit_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/homework16_edit_name"
+            android:layout_centerHorizontal="true"
+            android:text="@={viewModel.age}"
+            android:layout_margin="16dp"
+            android:hint="age"
+            android:imeOptions="actionDone"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/homework16_edit_surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/homework16_edit_age"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="16dp"
+            android:text="@={viewModel.country}"
+            android:hint="country"
+            android:imeOptions="actionDone"
+            android:inputType="text"/>
+
+        <Button
+            android:id="@+id/homework16_action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Save"
+            android:onClick="@{viewModel::addUserToDatabase}"
+            android:layout_margin="16dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Load"
+            android:layout_toRightOf="@id/homework16_action_button"
+            android:onClick="@{viewModel::getUserFromDatabase}"
+            android:layout_margin="16dp"/>
+
+</RelativeLayout>
+</layout>

@@ -1,6 +1,7 @@
 package com.alexbernat.domain.interaction;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.alexbernat.data.database.DatabaseManager;
 import com.alexbernat.data.dbentity.Country;
@@ -15,23 +16,24 @@ import io.reactivex.annotations.NonNull;
 /**
  * Created by Александр on 06.09.2017.
  */
-public class AddUserToDatabaseUseCase extends UseCase<User, String>{
+public class AddUserToDatabaseUseCase extends UseCase<User, Long>{
 
     private Context mContext;
 
     @Override
-    protected Observable<String> buildUseCase(final User param) {
+    protected Observable<Long> buildUseCase(final User param) {
 
-        return Observable.create(new ObservableOnSubscribe<String>() {
+        return Observable.create(new ObservableOnSubscribe<Long>() {
             @Override
-            public void subscribe(@NonNull ObservableEmitter<String> e) throws Exception {
+            public void subscribe(@NonNull ObservableEmitter<Long> e) throws Exception {
                 DatabaseManager databaseManager = new DatabaseManager(mContext);
                 databaseManager.open(true);
-                User user = new User();
-                databaseManager.insertUser(convertUser(user));
+                long id = databaseManager.insertUser(convertUser(param));
+                Log.e("buildUseCase", "create user");
                 databaseManager.close();
+                e.onNext(id);
             }
-        }).just("OK");
+        });
     }
 
     public Context getContext() {

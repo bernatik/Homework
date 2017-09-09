@@ -1,5 +1,6 @@
 package com.alexbernat.data.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -37,22 +38,15 @@ public class DatabaseManager {
         }
     }
 
-    public void insertUser(User user){
-        StringBuilder sql = new StringBuilder();
-        sql.append("INSERT INTO user ('name', 'age', 'countryId') ");
-        sql.append("VALUES (");
-        sql.append("'");
-        sql.append(user.getName());
-        sql.append("', ");
-        sql.append(user.getAge());
-        sql.append(", ");
-        sql.append("");
-        sql.append(user.getCountry().getId());
-        sql.append(")");
+    public long insertUser(User user){
+        Log.e("DatabaseManager", "insertUser() ");
 
-        database.execSQL(sql.toString());
+        ContentValues values = new ContentValues();
+        values.put("name", user.getName());
+        values.put("age", user.getAge());
 
-        Log.e("DatabaseManager", "insertUser() SQL request: " + sql.toString());
+        return database.insert("user", null, values);
+
     }
 
     public void updateUser(User user){
@@ -66,14 +60,13 @@ public class DatabaseManager {
     public User getUserById(int id){
 
         Cursor cursor = database.rawQuery("SELECT * FROM user INNER JOIN country ON " +
-                "user.countryId = country.id WHERE id = ?",
+                "user.countryId = country.id WHERE user.id = ?",
                 new String[]{String.valueOf(id)});
 
-        if (cursor != null){
+        if (cursor != null && cursor.moveToFirst()){
             User user = new User();
             Country country = new Country();
 
-            cursor.moveToFirst();
             int userId = cursor.getInt(0);
             String name = cursor.getString(1);
             int age = cursor.getInt(2);

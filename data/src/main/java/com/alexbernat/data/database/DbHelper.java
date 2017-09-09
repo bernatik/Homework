@@ -11,7 +11,7 @@ import android.util.Log;
 class DbHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "test";
-    private static final int DATABASE_VERSION = 0;
+    private static final int DATABASE_VERSION = 1;
 
     public DbHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -22,14 +22,14 @@ class DbHelper extends SQLiteOpenHelper {
         Log.e("DBHelper", "onCreate()");
 
         sqLiteDatabase.execSQL(
-                "CREATE TABLE user +" +
+                "CREATE TABLE user " +
                         "('id' INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "'name' TEXT, " +
                         "'age' INTEGER , " +
                         "'countryId' INTEGER)");
 
         sqLiteDatabase.execSQL(
-                "CREATE TABLE country +" +
+                "CREATE TABLE country " +
                         "('id' INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "'name' TEXT)");
     }

@@ -51,6 +51,7 @@ public class Homework14ViewModel implements BaseViewModel{
         }
 
         adapter = new SpinnerAdapter(activity, countries);
+        activity.spinner.setAdapter(adapter);
     }
 
     @Override
@@ -64,18 +65,18 @@ public class Homework14ViewModel implements BaseViewModel{
         String savedCode = preferences.getString(KEY_COUNTRY, "default");
         //find country by code
         Country country = getCountryByCode(savedCode);
-        String savedCountryName = country.getName();
-
-        for (int i = 0; i < countries.size(); i++){
-            if (countries.get(i).getName().equals(savedCountryName)) {
-                activity.spinner.setAdapter(adapter);
-                activity.spinner.setSelection(i, true);
-                Log.e("loop", "selected position is " + i);
-                break;
+        if (country != null) {
+            for (int i = 0; i < countries.size(); i++) {
+                if (countries.get(i).getName().equals(country.getName())) {
+                    activity.spinner.setAdapter(adapter);
+                    activity.spinner.setSelection(i, true);
+                    Log.e("loop", "selected position is " + i);
+                    break;
+                }
             }
         }
 
-        Log.e("on Resume", "Open code = " + savedCode + "; country = " + country.getName());
+//        Log.e("on Resume", "Open code = " + savedCode + "; country = " + country.getName());
     }
 
     @Override
