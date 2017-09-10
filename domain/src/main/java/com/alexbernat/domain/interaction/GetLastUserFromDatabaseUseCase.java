@@ -1,6 +1,7 @@
 package com.alexbernat.domain.interaction;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.alexbernat.data.database.DatabaseManager;
 import com.alexbernat.data.dbentity.Country;
@@ -24,20 +25,20 @@ public class GetLastUserFromDatabaseUseCase extends UseCase<Integer, User> {
         return Observable.create(new ObservableOnSubscribe<User>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<User> e) throws Exception {
+                Log.e("subscribe", "inside method");
                 DatabaseManager databaseManager = new DatabaseManager(mContext);
                 databaseManager.open(false);
-//                List<com.alexbernat.data.dbentity.User> allusers = databaseManager.getUsers();
-//                int lastIndex = 0;
-//                if (allusers!=null)
-//                    lastIndex = databaseManager.getUsers().size() - 1;
-//                Log.e("subscribe", "last index = " + lastIndex);
+
                 com.alexbernat.data.dbentity.User dbUser = databaseManager.getUserById(id);
                 databaseManager.close();
                 if (dbUser != null) {
+                    Log.e("emitter", "user != null");
                     e.onNext(convertUser(dbUser));
+                    e.onComplete();
                 }
                 else {
-                    e.onNext(null);
+                    Log.e("emitter", "user = null");
+                    e.onError(new Throwable("user with id = " + id + " is not found"));
                 }
             }
         });
@@ -62,8 +63,8 @@ public class GetLastUserFromDatabaseUseCase extends UseCase<Integer, User> {
 
     private com.alexbernat.domain.entity.Country convertCountry(Country country){
         com.alexbernat.domain.entity.Country domainCountry = new com.alexbernat.domain.entity.Country();
-        domainCountry.setId(country.getId());
-        domainCountry.setName(country.getName());
+        domainCountry.setCode(country.getCode());
+//        domainCountry.setName(country.getName());
         return domainCountry;
     }
 }

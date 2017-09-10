@@ -26,11 +26,12 @@ class DbHelper extends SQLiteOpenHelper {
                         "('id' INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "'name' TEXT, " +
                         "'age' INTEGER , " +
-                        "'countryId' INTEGER)");
+                        "'countryCode' TEXT)");
 
         sqLiteDatabase.execSQL(
                 "CREATE TABLE country " +
                         "('id' INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "'code' TEXT, " +
                         "'name' TEXT)");
     }
 

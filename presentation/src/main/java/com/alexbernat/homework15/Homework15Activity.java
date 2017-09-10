@@ -3,6 +3,7 @@ package com.alexbernat.homework15;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.widget.Spinner;
 
 import com.alexbernat.base.BaseActivity;
 import com.alexbernat.homework.R;
@@ -13,6 +14,7 @@ import com.alexbernat.homework.databinding.ActivityHomework15Binding;
  */
 public class Homework15Activity extends BaseActivity {
 
+    Spinner mSpinner;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
@@ -23,6 +25,7 @@ public class Homework15Activity extends BaseActivity {
         binding.setViewModel(viewModel);
         this.viewModel = viewModel;
 
+        mSpinner = binding.homework15Spinner;
         super.onCreate(savedInstanceState);
     }
 }

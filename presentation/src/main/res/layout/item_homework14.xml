@@ -10,5 +10,4 @@
         android:layout_height="wrap_content"
         style="@style/homework2_text_style"/>
 
-
 </LinearLayout>

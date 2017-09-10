@@ -55,7 +55,7 @@ public class AddUserToDatabaseUseCase extends UseCase<User, Long>{
 
     private Country convertCountry(com.alexbernat.domain.entity.Country country){
         Country dbCountry = new Country();
-        dbCountry.setId(country.getId());
+        dbCountry.setCode(country.getCode());
         dbCountry.setName(country.getName());
         return dbCountry;
     }

@@ -44,6 +44,7 @@ public class DatabaseManager {
         ContentValues values = new ContentValues();
         values.put("name", user.getName());
         values.put("age", user.getAge());
+        values.put("countryCode", user.getCountry().getCode());
 
         return database.insert("user", null, values);
 
@@ -59,27 +60,33 @@ public class DatabaseManager {
 
     public User getUserById(int id){
 
-        Cursor cursor = database.rawQuery("SELECT * FROM user INNER JOIN country ON " +
-                "user.countryId = country.id WHERE user.id = ?",
-                new String[]{String.valueOf(id)});
+//        Cursor cursor = database.rawQuery("SELECT * FROM user INNER JOIN country ON " +
+//                "user.countryCode = country.code WHERE user.id = ?",
+//                new String[]{String.valueOf(id)});
+        Cursor cursor =
+                database.rawQuery("SELECT * FROM user WHERE id = ?",
+                        new String[]{String.valueOf(id)});
 
-        if (cursor != null && cursor.moveToFirst()){
+        if (cursor != null){
+            Log.e("getUser()", "cursor not null");
+            cursor.moveToFirst();
+
             User user = new User();
             Country country = new Country();
 
             int userId = cursor.getInt(0);
             String name = cursor.getString(1);
             int age = cursor.getInt(2);
-            int countryId = cursor.getInt(3);
-            String countryName = cursor.getString(4);
+            String countryCode = cursor.getString(3);
+//            String countryName = cursor.getString(4);
             cursor.close();
 
             user.setId(userId);
             user.setName(name);
             user.setAge(age);
 
-            country.setId(countryId);
-            country.setName(countryName);
+            country.setCode(countryCode);
+//            country.setName(countryName);
 
             user.setCountry(country);
 
