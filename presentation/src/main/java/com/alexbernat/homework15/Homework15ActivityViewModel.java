@@ -34,8 +34,13 @@ public class Homework15ActivityViewModel  implements BaseViewModel {
     private SpinnerAdapter adapter;
     private ArrayList<Country> countries = new ArrayList<>();
 
+    public enum STATE {USER_EXIST, USER_NOT_FOUND};
+
     public ObservableField<String> name = new ObservableField<>();
     public ObservableField<String> age = new ObservableField<>();
+    public ObservableField<String> id = new ObservableField<>();
+    public ObservableField<STATE> state = new ObservableField<>(STATE.USER_EXIST);
+    public ObservableField<String> errorMessage = new ObservableField<>();
 
     private AddUserToDatabaseUseCase addUserUseCase = new AddUserToDatabaseUseCase();
     private GetLastUserFromDatabaseUseCase getLastUserUseCase = new GetLastUserFromDatabaseUseCase();
@@ -116,9 +121,10 @@ public class Homework15ActivityViewModel  implements BaseViewModel {
     public void getUserFromDatabase(View view){
         Log.e("onClick", "load user");
         getLastUserUseCase.setContext(activity);
-        getLastUserUseCase.execute(1, new DisposableObserver<User>() {
+        getLastUserUseCase.execute(Integer.parseInt(id.get()), new DisposableObserver<User>() {
             @Override
             public void onNext(@NonNull User user) {
+                state.set(STATE.USER_EXIST);
                 if (user != null) {
                     Log.e("onNext", "user name = " + user.getName());
                     name.set(user.getName());
@@ -145,6 +151,9 @@ public class Homework15ActivityViewModel  implements BaseViewModel {
             @Override
             public void onError(@NonNull Throwable e) {
                 Log.e("onError", e.getMessage());
+                state.set(STATE.USER_NOT_FOUND);
+                errorMessage.set("user with id = " + id.get() + " not found");
+
             }
 
             @Override

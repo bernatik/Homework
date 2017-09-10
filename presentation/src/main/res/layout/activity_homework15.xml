@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:layout_width="match_parent"
@@ -10,11 +11,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="@={viewModel.name}"
             android:layout_margin="16dp"
             android:hint="name"
             android:imeOptions="actionDone"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:text="@={viewModel.name}"/>
 
         <EditText
             android:id="@+id/homework15_edit_age"
@@ -22,40 +23,66 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/homework15_edit_name"
             android:layout_centerHorizontal="true"
-            android:text="@={viewModel.age}"
             android:layout_margin="16dp"
             android:hint="age"
             android:imeOptions="actionDone"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:text="@={viewModel.age}"/>
 
         <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/homework15_spinner"
-            android:layout_margin="16dp"
             android:layout_width="wrap_content"
+            android:layout_height="50dp"
             android:layout_below="@id/homework15_edit_age"
             android:layout_centerHorizontal="true"
-            android:layout_height="50dp"/>
+            android:layout_margin="16dp"/>
+
+        <TextView
+            android:id="@+id/homework15_user_not_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/homework15_spinner"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/black"
+            android:text="@{viewModel.errorMessage}"
+            android:visibility="@{viewModel.state == STATE.USER_EXIST ? View.INVISIBLE : View.VISIBLE}"/>
 
         <Button
             android:id="@+id/homework15_action_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:text="Save"
+            android:layout_margin="16dp"
             android:onClick="@{viewModel::addUserToDatabase}"
-            android:layout_margin="16dp"/>
+            android:text="Save"/>
 
         <Button
+            android:id="@+id/homework15_load_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:text="Load"
+            android:layout_margin="16dp"
             android:layout_toRightOf="@id/homework15_action_button"
             android:onClick="@{viewModel::getUserFromDatabase}"
-            android:layout_margin="16dp"/>
+            android:text="Load"/>
+
+        <EditText
+            android:id="@+id/homework15_edit_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/homework15_load_button"
+            android:layout_margin="16dp"
+            android:layout_toRightOf="@id/homework15_action_button"
+            android:hint="user id"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:text="@={viewModel.id}"/>
 
     </RelativeLayout>
+
     <data>
+        <import type="com.alexbernat.homework15.Homework15ActivityViewModel.STATE"/>
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="com.alexbernat.homework15.Homework15ActivityViewModel"/>
