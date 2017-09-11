@@ -2,6 +2,9 @@ package com.alexbernat;
 
 import android.app.Application;
 
+import com.alexbernat.datainjection.AppComponent;
+import com.alexbernat.datainjection.AppModule;
+import com.alexbernat.datainjection.DaggerAppComponent;
 import com.squareup.leakcanary.LeakCanary;
 
 import io.realm.Realm;
@@ -12,6 +15,8 @@ import io.realm.Realm;
 
 public class HomeworkApplication extends Application {
 
+    public static AppComponent appComponent;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -21,5 +26,9 @@ public class HomeworkApplication extends Application {
         LeakCanary.install(this);
 
         Realm.init(this);
+
+        appComponent = DaggerAppComponent.builder()
+                .appModule(new AppModule())
+                .build();
     }
 }

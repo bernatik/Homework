@@ -8,11 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alexbernat.HomeworkApplication;
 import com.alexbernat.base.BaseViewModel;
 import com.alexbernat.domain.entity.Homework11ProfileModel;
 import com.alexbernat.domain.interaction.Homework11CreateProfileUseCase;
 import com.alexbernat.domain.interaction.Homework11GetProfileByIdUseCase;
 import com.alexbernat.domain.interaction.Homework11UpdateProfileUseCase;
+
+import javax.inject.Inject;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.observers.DisposableObserver;
@@ -39,11 +42,15 @@ public class Homework11DetailActivityViewModel implements BaseViewModel {
 
     private Activity mActivity;
 
-    private Homework11CreateProfileUseCase createProfileUseCase = new Homework11CreateProfileUseCase();
+    @Inject
+    public Homework11CreateProfileUseCase createProfileUseCase;
+
     private Homework11GetProfileByIdUseCase getProfileByIdUseCase = new Homework11GetProfileByIdUseCase();
     private Homework11UpdateProfileUseCase updateProfileUseCase = new Homework11UpdateProfileUseCase();
 
+
     public Homework11DetailActivityViewModel(Activity activity) {
+        HomeworkApplication.appComponent.inject(this);
         mActivity = activity;
     }
 

@@ -75,7 +75,6 @@ public class Homework14ViewModel implements BaseViewModel{
                 }
             }
         }
-
 //        Log.e("on Resume", "Open code = " + savedCode + "; country = " + country.getName());
     }
 
