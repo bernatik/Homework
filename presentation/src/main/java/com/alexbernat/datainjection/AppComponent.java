@@ -1,6 +1,7 @@
 package com.alexbernat.datainjection;
 
 import com.alexbernat.classwork17.UI;
+import com.alexbernat.classwork21.RegisterPresenter;
 import com.alexbernat.homework11.Homework11DetailActivityViewModel;
 
 import javax.inject.Singleton;
@@ -18,5 +19,7 @@ public interface AppComponent {
     public void inject(UI ui);
 
     public void inject(Homework11DetailActivityViewModel vm);
+
+    public void inject(RegisterPresenter presenter);
 
 }

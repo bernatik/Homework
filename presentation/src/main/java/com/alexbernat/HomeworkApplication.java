@@ -28,7 +28,7 @@ public class HomeworkApplication extends Application {
         Realm.init(this);
 
         appComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule())
+                .appModule(new AppModule(this))
                 .build();
     }
 }

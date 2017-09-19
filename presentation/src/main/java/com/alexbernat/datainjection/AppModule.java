@@ -1,5 +1,7 @@
 package com.alexbernat.datainjection;
 
+import android.content.Context;
+
 import com.alexbernat.classwork17.Gson;
 import com.alexbernat.classwork17.OkHttp;
 import com.alexbernat.classwork17.Rest;
@@ -20,6 +22,17 @@ import dagger.Provides;
 //формируем все зависимости
 @Module
 public class AppModule {
+
+    private Context context;
+
+    public AppModule(Context context) {
+        this.context = context;
+    }
+
+    @Provides
+    public Context provideContext(){
+        return context;
+    }
 
     @Provides
     @Singleton

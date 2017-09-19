@@ -57,6 +57,10 @@
         <activity android:name="com.alexbernat.homework14.Homework14Activity"/>
         <activity android:name="com.alexbernat.homework15.Homework15Activity"/>
         <activity android:name="com.alexbernat.classwork18.Classwork18Activity"/>
+        <activity android:name="com.alexbernat.classwork21.RegisterActivity"/>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="8a696cd7ecf96a487cd803441c6fe60b383fb598" />
     </application>
 
 </manifest>

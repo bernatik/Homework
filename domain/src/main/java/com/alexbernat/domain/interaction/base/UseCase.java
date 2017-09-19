@@ -23,7 +23,7 @@ public abstract class UseCase<InParam, OutParam> {
     }
 
     public void dispose(){   //отписка
-        if (!disposable.isDisposed()){
+        if (disposable != null && !disposable.isDisposed()){
             disposable.dispose();
         }
     }

@@ -1,6 +1,8 @@
 package com.alexbernat.data.net;
 
+import com.alexbernat.data.entity.AccessTokenData;
 import com.alexbernat.data.entity.Profile;
+import com.alexbernat.data.entity.RegisterData;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -62,5 +64,13 @@ public class RestService {
 
     public Observable<Void> saveProfile(Profile profile){
         return restApi.saveProfile(profile);
+    }
+
+    public Observable<AccessTokenData> register(RegisterData registerData){
+
+        //TODO: change to real request
+        AccessTokenData accessTokenData = new AccessTokenData();
+        accessTokenData.setAccessToken("my lovely token");
+        return Observable.just(accessTokenData);
     }
 }

@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 
-import com.alexbernat.classwork18.Classwork18Activity;
+import com.alexbernat.classwork21.RegisterActivity;
 import com.alexbernat.homework.R;
 import com.alexbernat.homework1.Homework1Activity;
 import com.alexbernat.homework10.Homework10Activity;
@@ -21,6 +21,9 @@ import com.alexbernat.homework5.Homework5Activity;
 import com.alexbernat.homework6.Homework6Activity;
 import com.alexbernat.homework7.Homework7Activity;
 import com.alexbernat.homework9.Homework9Activity;
+import com.crashlytics.android.Crashlytics;
+
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by Александр on 26.07.2017.
@@ -31,13 +34,14 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main);
 
         Button btnClasswork = (Button)findViewById(R.id.button_classwork);
         btnClasswork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Classwork18Activity.class));
+                startActivity(new Intent(MainActivity.this, RegisterActivity.class));
             }
         });
 
