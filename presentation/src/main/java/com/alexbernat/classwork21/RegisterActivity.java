@@ -1,5 +1,6 @@
 package com.alexbernat.classwork21;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,7 +11,11 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.alexbernat.classwork18.Classwork18Activity;
+import com.alexbernat.classwork22.MapsActivity;
 import com.alexbernat.homework.R;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+
+import io.reactivex.functions.Consumer;
 
 /**
  * Created by Александр on 19.09.2017.
@@ -27,14 +32,32 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
 
         setContentView(R.layout.activity_classwork21);
 
-        presenter = new RegisterPresenter(this);
+//        presenter = new RegisterPresenter(this);
 
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         registerButton = (Button)findViewById(R.id.registerButton);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.onRegisterButtonClick("username", "password");
+//                presenter.onRegisterButtonClick("username", "password");
+
+                RxPermissions rxPermissions = new RxPermissions(RegisterActivity.this);
+                // Must be done during an initialization phase like onCreate
+                rxPermissions.request(Manifest.permission.ACCESS_FINE_LOCATION)
+                        .subscribe(new Consumer<Boolean>() {
+                            @Override
+                            public void accept(Boolean aBoolean) throws Exception {
+                                if (aBoolean){
+                                    Toast.makeText(RegisterActivity.this, "TRUE", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(RegisterActivity.this, "FALSE", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+                Intent intent = new Intent(RegisterActivity.this, MapsActivity.class);
+                startActivity(intent);
+
             }
         });
     }
@@ -42,13 +65,13 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
     @Override
     protected void onPause() {
         super.onPause();
-        presenter.onPause();
+//        presenter.onPause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        presenter.onResume();
+//        presenter.onResume();
     }
 
     @Override
